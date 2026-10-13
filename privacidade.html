@@ -32,10 +32,10 @@
   <p>Mensagens de quem não virou cliente: até 12 meses. Dados de projeto: pelo prazo combinado no contrato.</p>
 
   <h2>Seus direitos</h2>
-  <p>Você pode pedir a qualquer momento para ver, corrigir ou apagar os seus dados. Basta escrever para <a id="email-priv" href="mailto:contato@lastroestoque.com.br">contato@lastroestoque.com.br</a>.</p>
+  <p>Você pode pedir a qualquer momento para ver, corrigir ou apagar os seus dados. Basta escrever <a id="email-priv" href="mailto:contato@lastroestoque.com.br">contato@lastroestoque.com.br</a>.</p>
 </main>
 <footer><div class="faixa"><span>Lastro · Inventário e gestão de estoque · São Paulo, SP</span><a href="index.html">Voltar ao início</a></div></footer>
 <script src="assets/config.js"></script>
-<script>(function(){var e=(window.LASTRO||{}).email;var a=document.getElementById("email-priv");if(e&&a){a.href="mailto:"+e;a.textContent=e;}})();</script>
+<script>(function(){var c=window.LASTRO||{},a=document.getElementById("email-priv");if(!a)return;if(c.email){a.href="mailto:"+c.email;a.textContent=c.email;}else if(c.whatsapp){a.href="https://wa.me/"+String(c.whatsapp).replace(/\D/g,"");a.textContent="pelo WhatsApp";a.rel="noopener";a.target="_blank";}})();</script>
 </body>
 </html>

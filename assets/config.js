@@ -2,7 +2,7 @@
 // WhatsApp: só números, com 55 + DDD (ex.: "5511987654321"). Vazio = o formulário abre o e-mail.
 window.LASTRO = {
   nome: "Lastro",
-  whatsapp: "",
+  whatsapp: "5511950600817",
   email: "contato@lastroestoque.com.br",
   regiao: "São Paulo capital",
 };

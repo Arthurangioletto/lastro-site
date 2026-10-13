@@ -5,7 +5,7 @@ Edite os textos aqui e rode de novo; as páginas são sobrescritas.
 """
 import html, json, os
 
-BASE = "https://arthurangioletto.github.io/lastro-site/"
+BASE = "https://lastroinventario.com.br/"
 DATA = "2026-10-13"
 DATA_BR = "13 de outubro de 2026"
 AUTOR = "Arthur Angioletto"

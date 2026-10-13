@@ -4,8 +4,8 @@ Dois produtos no mesmo repositório, ambos estáticos (HTML, CSS e JavaScript pu
 
 | Pasta | O que é | Endereço atual |
 |---|---|---|
-| `/` | Site da Lastro (página única + política de privacidade) | https://arthurangioletto.github.io/lastro-site/ |
-| `/app/` | Lastro Contagem: ferramenta de inventário e Raio-X do Estoque | https://arthurangioletto.github.io/lastro-site/app/ (fora dos buscadores) |
+| `/` | Site da Lastro (página única + política de privacidade) | https://lastroinventario.com.br/ |
+| `/app/` | Lastro Contagem: ferramenta de inventário e Raio-X do Estoque | https://lastroinventario.com.br/app/ (fora dos buscadores) |
 
 ## Estrutura do site
 

@@ -1,87 +1,196 @@
 (function () {
   "use strict";
   var C = window.LASTRO || {};
-  var reduzir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var reais = function (v) { return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }); };
+  var doc = document;
+  var $ = function (s, r) { return (r || doc).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); };
+  var temIO = "IntersectionObserver" in window;
 
-  // ---- a conciliação da abertura: conta item por item, uma vez ----
-  var corpo = document.getElementById("linhas-conc");
-  if (corpo && !reduzir) {
-    var linhas = Array.prototype.slice.call(corpo.querySelectorAll("tr"));
-    var finais = linhas.map(function (tr) { return [tr.querySelector(".fis").textContent, tr.querySelector(".dif").outerHTML]; });
-    var totais = document.getElementById("totais-conc");
-    linhas.forEach(function (tr) {
-      tr.classList.add("pendente");
-      tr.querySelector(".fis").textContent = "—";
-      tr.querySelector(".dif").textContent = "a contar";
-    });
-    totais.style.visibility = "hidden";
-    var i = 0;
-    var passo = function () {
-      if (i > 0) linhas[i - 1].classList.remove("contando");
-      if (i >= linhas.length) { totais.style.visibility = "visible"; return; }
-      var tr = linhas[i];
-      tr.classList.remove("pendente");
-      tr.classList.add("contando");
-      tr.querySelector(".fis").textContent = finais[i][0];
-      tr.querySelector(".dif").outerHTML = finais[i][1];
-      i++;
-      setTimeout(passo, 650);
-    };
-    setTimeout(passo, 700);
-  }
-
-  // ---- canais de contato ----
-  var canais = document.getElementById("canais");
+  // ---------- contato vindo do config.js ----------
   var zap = String(C.whatsapp || "").replace(/\D/g, "");
-  if (canais) {
-    var html = "";
-    if (zap) html += '<div><a href="https://wa.me/' + zap + '" target="_blank" rel="noopener">WhatsApp</a><span>Resposta mais rápida</span></div>';
-    if (C.email) html += '<div><a href="mailto:' + C.email + '">' + C.email + '</a><span>E-mail</span></div>';
-    html += '<div><span>Atendimento</span>' + (C.regiao || "São Paulo") + "</div>";
-    canais.innerHTML = html;
+  var zapBonito = (function (n) {
+    var m = n.match(/^55(\d{2})(\d{4,5})(\d{4})$/);
+    return m ? "(" + m[1] + ") " + m[2] + "-" + m[3] : n;
+  })(zap);
+  if (zap) {
+    $$('a[href^="https://wa.me/"]').forEach(function (a) {
+      a.href = "https://wa.me/" + zap;
+      if (/\(\d{2}\)/.test(a.textContent)) a.textContent = a.textContent.replace(/\(\d{2}\)\s?[\d-]+/, zapBonito);
+    });
   }
 
-  // ---- formulário: monta a mensagem e abre WhatsApp (ou e-mail) ----
-  var form = document.getElementById("form-orcamento");
-  if (!form) return;
-  var botao = document.getElementById("enviar");
-  if (!zap) botao.textContent = "Enviar por e-mail";
-  var aberto = Date.now();
-  var obrig = { nome: "Escreva seu nome.", empresa: "Escreva o nome da empresa.", problema: "Conte em uma frase qual é o problema." };
+  // ---------- menu ----------
+  var botao = $("#menu-botao"), menu = $("#menu");
+  function fecharMenu(devolverFoco) {
+    if (!menu.classList.contains("aberto")) return;
+    menu.classList.remove("aberto");
+    botao.setAttribute("aria-expanded", "false");
+    if (devolverFoco) botao.focus();
+  }
+  if (botao && menu) {
+    botao.addEventListener("click", function () {
+      var abrir = !menu.classList.contains("aberto");
+      menu.classList.toggle("aberto", abrir);
+      botao.setAttribute("aria-expanded", String(abrir));
+      if (abrir) { var p = $("a", menu); if (p) p.focus(); }
+    });
+    menu.addEventListener("click", function (e) { if (e.target.closest("a")) fecharMenu(false); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") fecharMenu(true); });
+    doc.addEventListener("click", function (e) { if (!e.target.closest("#topo")) fecharMenu(false); });
+    window.addEventListener("resize", function () { if (window.innerWidth > 1020) fecharMenu(false); });
+  }
 
+  // ---------- link da seção atual no menu ----------
+  var links = $$('#menu ul a[href^="#"]');
+  if (temIO && links.length) {
+    var porId = {};
+    links.forEach(function (a) { porId[a.getAttribute("href").slice(1)] = a; });
+    var spy = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute("aria-current"); });
+        var a = porId[en.target.id];
+        if (a && en.target.id !== "inicio") a.setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(porId).forEach(function (id) { var s = doc.getElementById(id); if (s) spy.observe(s); });
+  }
+
+  // ---------- CTA fixo no celular: aparece depois da primeira dobra, some perto do formulário ----------
+  var cta = $("#cta-movel");
+  if (cta && temIO) {
+    var visto = { inicio: true, contato: false, rodape: false };
+    var atualizar = function () { cta.classList.toggle("visivel", !visto.inicio && !visto.contato && !visto.rodape); };
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) { visto[en.target.dataset.cta] = en.isIntersecting; });
+      atualizar();
+    });
+    [["#inicio", "inicio"], ["#contato", "contato"], [".rodape", "rodape"]].forEach(function (p) {
+      var el = $(p[0]); if (el) { el.dataset.cta = p[1]; obs.observe(el); }
+    });
+  }
+
+  // ---------- formulário ----------
+  var form = $("#form-orcamento");
+  if (!form) return;
+  var revisao = $("#revisao"), revTexto = $("#revisao-texto"), abrir = $("#abrir-whats");
+  var status = $("#revisao-status"), erroGeral = $("#erro-geral");
+  var regras = {
+    nome: { min: 2, rotulo: "Nome", msg: "Escreva seu nome." },
+    empresa: { min: 2, rotulo: "Empresa", msg: "Escreva o nome da empresa." },
+    local: { min: 2, rotulo: "Bairro ou cidade", msg: "Informe o bairro ou a cidade do estoque." },
+    segmento: { min: 1, rotulo: "Segmento", msg: "Escolha o segmento mais próximo." },
+    problema: { min: 10, rotulo: "Principal problema", msg: "Conte em uma frase qual é o problema (mínimo de 10 letras)." }
+  };
+
+  function limpar(v, multilinha) {
+    v = String(v || "").replace(/\r\n?/g, "\n").replace(/[\u0000-\u0008\u000B-\u001F\u007F]/g, "");
+    if (!multilinha) return v.replace(/\s+/g, " ").trim();
+    return v.split("\n").map(function (l) { return l.replace(/[ \t]+/g, " ").trim(); }).join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  }
+  function dados() {
+    var d = {};
+    $$("input, select, textarea", form).forEach(function (el) { if (el.name) d[el.name] = limpar(el.value, el.tagName === "TEXTAREA"); });
+    return d;
+  }
+  function validarCampo(nome, valor) {
+    var r = regras[nome], el = form.elements[nome], erro = doc.getElementById("e-" + nome);
+    var curto = r.min > 1 ? valor.replace(/\s/g, "").length < r.min : !valor;
+    var msg = !valor ? r.msg : (curto ? r.msg : "");
+    el.setAttribute("aria-invalid", msg ? "true" : "false");
+    if (erro) erro.textContent = msg;
+    return !msg;
+  }
+
+  // revalida enquanto a pessoa corrige
+  Object.keys(regras).forEach(function (k) {
+    var el = form.elements[k];
+    var ev = el.tagName === "SELECT" ? "change" : "input";
+    el.addEventListener(ev, function () {
+      if (el.getAttribute("aria-invalid") === "true") validarCampo(k, limpar(el.value, el.tagName === "TEXTAREA"));
+    });
+    el.addEventListener("blur", function () {
+      if (el.value) validarCampo(k, limpar(el.value, el.tagName === "TEXTAREA"));
+    });
+  });
+
+  var problema = form.elements.problema, contador = $("#c-problema");
+  function contar() { contador.textContent = problema.value.length + "/" + problema.maxLength; }
+  problema.addEventListener("input", contar); contar();
+
+  // botões "pedir avaliação deste serviço" já escolhem o interesse
+  $$("[data-interesse]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var sel = form.elements.interesse, v = a.getAttribute("data-interesse");
+      if ($$("option", sel).some(function (o) { return o.value === v || o.text === v; })) sel.value = v;
+      if (!revisao.hidden) mostrarForm(false);
+    });
+  });
+
+  function montar(d) {
+    var linhas = ["Olá, Arthur! Quero solicitar uma avaliação de estoque.", ""];
+    [["nome", "Nome"], ["empresa", "Empresa"], ["local", "Local"], ["segmento", "Segmento"], ["skus", "Itens (SKUs)"],
+     ["sistema", "Sistema"], ["interesse", "Interesse"], ["prazo", "Prazo"]].forEach(function (p) {
+      if (d[p[0]]) linhas.push(p[1] + ": " + d[p[0]]);
+    });
+    linhas.push("", "Principal problema:", d.problema);
+    return linhas.join("\n");
+  }
+
+  function mostrarForm(foco) {
+    revisao.hidden = true; form.hidden = false; status.textContent = "";
+    if (foco) form.elements.nome.focus();
+  }
+
+  var travado = false;
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var d = {};
-    Array.prototype.forEach.call(form.elements, function (el) { if (el.name) d[el.name] = String(el.value || "").trim(); });
-    if (d.site || Date.now() - aberto < 2500) return; // robôs preenchem o campo escondido ou enviam rápido demais
-    var ok = true;
-    Object.keys(obrig).forEach(function (k) {
-      var campo = form.elements[k], erro = form.querySelector('[data-erro="' + k + '"]');
-      var falta = !d[k];
-      campo.setAttribute("aria-invalid", falta ? "true" : "false");
-      erro.textContent = falta ? obrig[k] : "";
-      if (falta && ok) { campo.focus(); ok = false; }
-    });
-    if (!ok) return;
-    var linhas = [
-      "Olá! Quero uma avaliação de estoque.",
-      "Nome: " + d.nome,
-      "Empresa: " + d.empresa,
-      d.local && "Local: " + d.local,
-      d.segmento && "Segmento: " + d.segmento,
-      d.skus && "Itens no estoque: " + d.skus,
-      d.sistema && "Sistema: " + d.sistema,
-      "Problema: " + d.problema,
-      d.prazo && "Prazo: " + d.prazo,
-    ].filter(Boolean);
-    var texto = linhas.join("\n");
-    var url = zap
-      ? "https://wa.me/" + zap + "?text=" + encodeURIComponent(texto)
-      : "mailto:" + (C.email || "") + "?subject=" + encodeURIComponent("Avaliação de estoque — " + d.empresa) + "&body=" + encodeURIComponent(texto);
-    window.open(url, zap ? "_blank" : "_self", "noopener");
-    document.getElementById("retorno").textContent = zap
-      ? "Abrimos o WhatsApp com a sua mensagem pronta. É só tocar em enviar."
+    if (travado) return;
+    var d = dados();
+    if (d.site) return; // campo escondido: só robôs preenchem
+    var invalidos = Object.keys(regras).filter(function (k) { return !validarCampo(k, d[k]); });
+    if (invalidos.length) {
+      erroGeral.textContent = "Revise " + (invalidos.length === 1 ? "o campo" : "os campos") + ": " +
+        invalidos.map(function (k) { return regras[k].rotulo; }).join(", ") + ".";
+      form.elements[invalidos[0]].focus();
+      return;
+    }
+    erroGeral.textContent = "";
+    travado = true; setTimeout(function () { travado = false; }, 700);
+
+    var texto = montar(d);
+    revTexto.textContent = texto;
+    if (zap) {
+      abrir.href = "https://wa.me/" + zap + "?text=" + encodeURIComponent(texto);
+      abrir.textContent = "Abrir no WhatsApp";
+    } else {
+      abrir.href = "mailto:" + (C.email || "") + "?subject=" + encodeURIComponent("Avaliação de estoque: " + d.empresa) + "&body=" + encodeURIComponent(texto);
+      abrir.textContent = "Abrir no e-mail";
+      abrir.removeAttribute("target");
+    }
+    form.hidden = true; revisao.hidden = false; status.textContent = "";
+    var tit = $("#revisao-titulo");
+    tit.focus({ preventScroll: true });
+    revisao.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  });
+
+  abrir.addEventListener("click", function () {
+    status.textContent = zap
+      ? "Abrimos o WhatsApp com a mensagem pronta. Ela só é enviada quando você tocar em enviar lá. Se não abriu, copie o texto e mande para " + zapBonito + "."
       : "Abrimos o seu e-mail com a mensagem pronta. É só enviar.";
   });
+
+  $("#copiar").addEventListener("click", function () {
+    var texto = revTexto.textContent;
+    var ok = function () { status.textContent = "Texto copiado. Cole no WhatsApp" + (zap ? " de " + zapBonito : "") + " e envie."; };
+    var falhou = function () {
+      var r = doc.createRange(); r.selectNodeContents(revTexto);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      status.textContent = "Não foi possível copiar sozinho. O texto ficou selecionado: copie com Ctrl+C ou segurando o dedo.";
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(texto).then(ok, falhou);
+    else falhou();
+  });
+
+  $("#editar").addEventListener("click", function () { mostrarForm(true); });
 })();

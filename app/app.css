@@ -1,6 +1,6 @@
 @font-face { font-family: "Instrument Sans"; src: url("../assets/instrument-sans.woff") format("woff"); font-weight: 400 700; font-stretch: 75% 100%; font-display: swap; }
 :root {
-  --petroleo: #0e3b39; --petroleo-2: #15514e; --papel: #f4f7f6; --branco: #fff; --tinta: #13201f; --cinza: #556361;
+  --petroleo: #10233a; --petroleo-2: #1a3657; --papel: #f4f7f6; --branco: #fff; --tinta: #13201f; --cinza: #556361;
   --linha: #d6dfdd; --falta: #b8352a; --falta-f: #fbe9e7; --sobra: #2a57a8; --sobra-f: #e7eefb; --bate: #1e7f55; --bate-f: #e3f3eb;
   --atencao: #9a5b00; --atencao-f: #fff2d9; --raio: 8px;
 }

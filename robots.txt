@@ -1,3 +1,5 @@
+# Vale quando o site estiver na raiz de um domínio próprio (lastroestoque.com.br).
+# Em arthurangioletto.github.io/lastro-site/ os buscadores leem o robots.txt da raiz do github.io, não este.
 User-agent: *
 Allow: /
-Sitemap: https://lastroestoque.com.br/sitemap.xml
+Sitemap: https://arthurangioletto.github.io/lastro-site/sitemap.xml

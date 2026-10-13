@@ -3,242 +3,537 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lastro | Inventário de estoque e diagnóstico em São Paulo</title>
-<meta name="description" content="Inventário físico, Raio-X do Estoque e diagnóstico para empresas de São Paulo. Medimos a diferença entre o sistema e a prateleira, mostramos quanto ela vale em reais e ajudamos a corrigir a causa.">
-<link rel="canonical" href="https://lastroestoque.com.br/">
+<title>Inventário de estoque em São Paulo | Lastro</title>
+<meta name="description" content="Inventário físico, Raio-X do Estoque e consultoria de estoque em São Paulo. A Lastro compara o físico com o sistema, mostra as divergências em reais e ajuda a corrigir as causas.">
+<link rel="canonical" href="https://arthurangioletto.github.io/lastro-site/">
+<meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Lastro | Inventário de estoque e diagnóstico em São Paulo">
-<meta property="og:description" content="Seu sistema diz uma coisa e a prateleira, outra? Medimos a diferença, mostramos quanto ela vale e ajudamos a corrigir a causa.">
-<meta property="og:url" content="https://lastroestoque.com.br/">
-<meta name="theme-color" content="#0e3b39">
+<meta property="og:site_name" content="Lastro">
+<meta property="og:title" content="Lastro | O sistema diz uma coisa. A prateleira, outra.">
+<meta property="og:description" content="Inventário físico, Raio-X do Estoque e consultoria de estoque em São Paulo. Divergências medidas em reais, faltas e sobras separadas.">
+<meta property="og:url" content="https://arthurangioletto.github.io/lastro-site/">
+<meta property="og:image" content="https://arthurangioletto.github.io/lastro-site/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lastro: o sistema diz uma coisa, a prateleira, outra. Painel de conciliação de estoque com dados ilustrativos.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#10233a">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/instrument-sans.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add("js");</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Lastro",
-  "description": "Inventário físico, Raio-X do Estoque, diagnóstico e acompanhamento de estoque para pequenas e médias empresas.",
-  "url": "https://lastroestoque.com.br/",
+  "description": "Inventário físico, Raio-X do Estoque, diagnóstico e consultoria de gestão de estoque para pequenas e médias empresas.",
+  "url": "https://arthurangioletto.github.io/lastro-site/",
+  "logo": "https://arthurangioletto.github.io/lastro-site/assets/apple-touch-icon.png",
+  "image": "https://arthurangioletto.github.io/lastro-site/assets/og.png",
+  "telephone": "+55-11-95060-0817",
   "areaServed": { "@type": "City", "name": "São Paulo" },
-  "serviceType": ["Inventário de estoque", "Diagnóstico de gestão de estoque", "Inventário rotativo"]
+  "founder": { "@type": "Person", "name": "Arthur Angioletto" },
+  "serviceType": ["Inventário de estoque", "Diagnóstico de estoque", "Consultoria de estoque", "Inventário rotativo"]
 }
 </script>
 </head>
 <body>
-<a class="sr" href="#conteudo">Pular para o conteúdo</a>
-<header class="topo">
-  <div class="faixa">
-    <a class="marca" href="#" aria-label="Lastro, início"><img src="assets/logo.svg" alt=""><span>Lastro</span></a>
-    <nav aria-label="Principal">
-      <a class="l" href="#raio-x">Raio-X do Estoque</a>
-      <a class="l" href="#servicos">Serviços</a>
-      <a class="l" href="#como-funciona">Como funciona</a>
-      <a class="l" href="#sobre">Sobre</a>
-      <a class="btn btn-principal" href="#contato">Pedir avaliação</a>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" id="topo">
+  <div class="faixa topo-faixa">
+    <a class="marca" href="#inicio" aria-label="Lastro, voltar ao início"><img src="assets/logo.svg" alt="" width="32" height="32"><span>Lastro</span></a>
+    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu" id="menu-botao">
+      <span class="menu-icone" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-texto">Menu</span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <ul>
+        <li class="so-movel"><a href="#inicio">Início</a></li>
+        <li><a href="#raio-x">Raio-X do Estoque</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+      </ul>
+      <a class="btn btn-principal btn-topo" href="#contato">Pedir avaliação</a>
     </nav>
   </div>
 </header>
 
 <main id="conteudo">
-<section class="abertura">
-  <div class="faixa">
-    <div>
-      <h1>O sistema diz uma coisa. A prateleira, outra.</h1>
-      <p class="chamada">A Lastro conta o seu estoque, mostra onde o saldo do sistema não bate com o físico, quanto essa diferença vale em reais e ajuda a corrigir a causa.</p>
+
+<!-- ===================== PRIMEIRA DOBRA ===================== -->
+<section class="abertura" id="inicio" aria-labelledby="titulo-principal">
+  <div class="faixa abertura-grade">
+    <div class="abertura-texto">
+      <p class="sobretitulo">Inventário e consultoria de estoque em São Paulo</p>
+      <h1 id="titulo-principal">O sistema diz uma coisa. A prateleira, outra.</h1>
+      <p class="chamada">A Lastro compara o estoque físico com o saldo do seu sistema, mostra onde estão as divergências e quanto elas valem em reais, e ajuda a encontrar o que está causando cada uma.</p>
       <div class="acoes">
-        <a class="btn btn-principal" href="#contato">Pedir uma avaliação</a>
-        <a class="btn btn-borda" href="#raio-x">Conhecer o Raio-X do Estoque</a>
+        <a class="btn btn-principal btn-grande" href="#contato">Solicitar avaliação</a>
+        <a class="btn btn-secundario btn-grande" href="#relatorio">Ver exemplo de relatório</a>
       </div>
-      <p class="miuda">Atendimento em São Paulo capital. Contagens em fim de semana, para não parar a sua operação.</p>
+      <ul class="abertura-notas">
+        <li>Atendimento em São Paulo capital</li>
+        <li>Contagem em fim de semana, conforme o escopo combinado</li>
+      </ul>
     </div>
 
-    <figure class="conciliacao" aria-labelledby="leg-conc" style="margin:0">
-      <header><strong>Conciliação: sistema × físico</strong><span>Exemplo ilustrativo</span></header>
-      <table>
-        <caption class="sr" id="leg-conc">Exemplo de conciliação com quatro itens: saldo do sistema, contagem física e diferença</caption>
+    <figure class="painel" aria-labelledby="painel-titulo">
+      <div class="painel-topo">
+        <div>
+          <p class="painel-titulo" id="painel-titulo">Conciliação sistema × físico</p>
+          <p class="painel-sub">Distribuidora fictícia · amostra de 150 itens</p>
+        </div>
+        <span class="selo">Dados ilustrativos</span>
+      </div>
+      <dl class="painel-kpis">
+        <div class="kpi kpi-bate">
+          <dt>Itens que batem</dt>
+          <dd><span class="kpi-num">78,7%</span><span class="medidor" aria-hidden="true"><i style="--v:78.7%"></i></span><small>118 de 150</small></dd>
+        </div>
+        <div class="kpi kpi-falta">
+          <dt>Faltas</dt>
+          <dd><span class="kpi-num">R$ 6.912,40</span><small>21 itens</small></dd>
+        </div>
+        <div class="kpi kpi-sobra">
+          <dt>Sobras</dt>
+          <dd><span class="kpi-num">R$ 2.180,00</span><small>11 itens</small></dd>
+        </div>
+      </dl>
+      <table class="tabela-conc painel-tabela">
+        <caption class="sr">Quatro itens da amostra fictícia: saldo do sistema, quantidade física e diferença</caption>
         <thead><tr><th scope="col">Item</th><th scope="col">Sistema</th><th scope="col">Físico</th><th scope="col">Diferença</th></tr></thead>
-        <tbody id="linhas-conc">
-          <tr data-sis="48" data-fis="41" data-custo="38.90"><td>Disjuntor bipolar 32 A<small>Corredor B, prateleira 3</small></td><td>48</td><td class="fis">41</td><td class="dif falta">−7<small>−R$ 272,30</small></td></tr>
-          <tr data-sis="12" data-fis="12" data-custo="389.00"><td>Cabo flexível 2,5 mm, rolo 100 m<small>Corredor A, palete 2</small></td><td>12</td><td class="fis">12</td><td class="dif bate">bate</td></tr>
-          <tr data-sis="30" data-fis="36" data-custo="42.50"><td>Registro de gaveta 3/4"<small>Corredor C, prateleira 1</small></td><td>30</td><td class="fis">36</td><td class="dif sobra">+6<small>+R$ 255,00</small></td></tr>
-          <tr data-sis="140" data-fis="118" data-custo="5.10"><td>Fita isolante 20 m<small>Balcão, gaveta 4</small></td><td>140</td><td class="fis">118</td><td class="dif falta">−22<small>−R$ 112,20</small></td></tr>
+        <tbody>
+          <tr style="--i:0"><th scope="row">Disjuntor tripolar 63 A</th><td data-rotulo="Sistema">24</td><td data-rotulo="Físico">15</td><td data-rotulo="Diferença" class="dif falta"><span>−9</span><small>−R$ 1.278,00</small></td></tr>
+          <tr style="--i:1"><th scope="row">Cabo flexível 2,5 mm, rolo 100 m</th><td data-rotulo="Sistema">12</td><td data-rotulo="Físico">12</td><td data-rotulo="Diferença" class="dif bate"><span>bate</span></td></tr>
+          <tr style="--i:2"><th scope="row">Cabo PP 3×2,5 mm (metro)</th><td data-rotulo="Sistema">500</td><td data-rotulo="Físico">680</td><td data-rotulo="Diferença" class="dif sobra"><span>+180</span><small>+R$ 702,00</small></td></tr>
+          <tr style="--i:3"><th scope="row">Fita isolante 20 m</th><td data-rotulo="Sistema">140</td><td data-rotulo="Físico">118</td><td data-rotulo="Diferença" class="dif falta"><span>−22</span><small>−R$ 112,20</small></td></tr>
         </tbody>
       </table>
-      <dl class="totais" id="totais-conc" style="margin:0">
-        <div class="falta"><dt>Faltas</dt><dd>R$ 384,50</dd></div>
-        <div class="sobra"><dt>Sobras</dt><dd>R$ 255,00</dd></div>
-        <div class="acur"><dt>Itens que batem</dt><dd>1 de 4</dd></div>
-      </dl>
-      <p class="rotulo">Faltas e sobras aparecem separadas: uma sobra não apaga uma falta, as duas são erro de controle.</p>
+      <figcaption class="painel-rodape">Recorte de 4 dos 150 itens do <a href="#relatorio">relatório de exemplo</a>. Faltas e sobras são somadas separadamente: uma não compensa a outra.</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="bloco">
+<!-- ===================== SINAIS ===================== -->
+<section class="secao secao-sinais" aria-labelledby="titulo-sinais">
   <div class="faixa">
-    <h2>Sinais de que o estoque saiu do controle</h2>
-    <p class="intro">Quase toda empresa com estoque convive com algum desses. O problema é que ninguém sabe o tamanho.</p>
-    <div class="sinais">
-      <article><h3>Vende o que não tem</h3><p>O sistema mostra saldo, o cliente compra e na hora de separar o produto não está lá. Vira cancelamento, atraso ou desconto.</p></article>
-      <article><h3>Compra o que já tem</h3><p>O produto está no estoque, mas em outro lugar ou sem etiqueta. A compra se repete e o dinheiro fica parado.</p></article>
-      <article><h3>Ajusta sem saber por quê</h3><p>No fechamento, o saldo é corrigido para bater, mas a causa continua lá e a diferença volta no mês seguinte.</p></article>
-    </div>
+    <h2 id="titulo-sinais" class="titulo-medio">Sinais de que o saldo deixou de ser confiável</h2>
+    <ul class="sinais">
+      <li><h3>Vende o que não tem</h3><p>O sistema mostra saldo, o pedido entra e, na separação, o produto não está lá. Vira cancelamento, atraso ou desconto.</p></li>
+      <li><h3>Compra o que já tem</h3><p>O produto está no estoque, mas em outro endereço ou sem etiqueta. A compra se repete e o dinheiro fica parado.</p></li>
+      <li><h3>Ajusta sem saber por quê</h3><p>No fechamento, o saldo é corrigido para bater, mas a causa continua lá e a diferença volta no mês seguinte.</p></li>
+    </ul>
   </div>
 </section>
 
-<section class="bloco claro" id="raio-x">
+<!-- ===================== RAIO-X ===================== -->
+<section class="secao secao-raiox" id="raio-x" aria-labelledby="titulo-raiox">
   <div class="faixa">
-    <h2>Raio-X do Estoque: o tamanho do problema em um sábado</h2>
-    <p class="intro">Uma contagem por amostragem dos itens que mais pesam no seu caixa, comparada com o seu sistema. Você descobre se o seu saldo merece confiança antes de decidir por um inventário completo.</p>
-    <div class="raiox">
-      <ul class="lista-entrega">
-        <li><div><b>Amostra dos itens de maior valor</b><span>Os produtos que concentram o dinheiro do estoque, mais uma parte escolhida ao acaso para medir o todo.</span></div></li>
-        <li><div><b>Contagem e recontagem</b><span>Toda diferença é contada de novo antes de entrar no relatório.</span></div></li>
-        <li><div><b>Percentual de itens que batem</b><span>O indicador que mostra o quanto dá para confiar no saldo do sistema.</span></div></li>
-        <li><div><b>Faltas e sobras em reais, separadas</b><span>Quando os custos do seu cadastro forem confiáveis. Se não forem, mostramos em quantidade e dizemos isso no relatório.</span></div></li>
-        <li><div><b>Causas prováveis e próximos passos</b><span>Onde o erro nasce (recebimento, endereço, unidade de medida, cadastro) e o que fazer primeiro.</span></div></li>
-      </ul>
-      <aside class="ficha" aria-label="Resumo do Raio-X do Estoque">
-        <h3>Raio-X do Estoque</h3>
+    <div class="cabeca-secao">
+      <p class="sobretitulo">Por onde começar</p>
+      <h2 id="titulo-raiox">Raio-X do Estoque</h2>
+      <p class="lead">Uma contagem por amostragem, comparada com o seu sistema, para saber se o saldo merece confiança e onde estão as maiores divergências, antes de decidir por um inventário completo.</p>
+    </div>
+
+    <div class="raiox-grade">
+      <dl class="raiox-perguntas">
+        <div><dt>Para quem serve</dt><dd>Distribuidoras, lojas de material de construção, autopeças, atacados, embalagens e e-commerces com estoque próprio que desconfiam do saldo do sistema.</dd></div>
+        <div><dt>O que investiga</dt><dd>Quanto o saldo do sistema erra, em quantidade e em reais, e quais falhas de processo provavelmente geram essas diferenças.</dd></div>
+        <div><dt>Como a amostra é escolhida</dt><dd>Os itens que concentram mais valor em estoque, mais uma parcela sorteada entre os demais para observar outros pontos do estoque. Os critérios ficam descritos no relatório.</dd></div>
+        <div><dt>O que é contado</dt><dd>Só os itens da amostra, sem mostrar o saldo do sistema a quem conta. Toda diferença é recontada antes de entrar no relatório.</dd></div>
+        <div><dt>O que é comparado</dt><dd>Quantidade física × saldo do sistema, item a item, com o custo unitário do seu cadastro para chegar ao valor de cada divergência.</dd></div>
+        <div><dt>O que o relatório traz</dt><dd>Percentual de itens que batem, faltas e sobras em reais (separadas), maiores divergências, causas prováveis e ações recomendadas em ordem de prioridade.</dd></div>
+      </dl>
+
+      <aside class="ficha" aria-labelledby="titulo-ficha">
+        <h3 id="titulo-ficha">Resumo do Raio-X</h3>
         <dl>
-          <div><dt>Duração</dt><dd>1 dia de contagem, em geral no sábado</dd></div>
-          <div><dt>Entrega</dt><dd>Relatório e conversa de apresentação em até 5 dias úteis</dd></div>
-          <div><dt>O que você fornece</dt><dd>Relatório de saldo do sistema com código, descrição, unidade e custo; acesso ao estoque</dd></div>
-          <div><dt>Orçamento</dt><dd>Preço fechado antes de começar, conforme o tamanho e a organização do estoque</dd></div>
+          <div><dt>Prazo estimado</dt><dd>1 dia de contagem, em geral num sábado. Relatório e conversa de apresentação em até 5 dias úteis.</dd></div>
+          <div><dt>O que você fornece</dt><dd>Relatório de saldo do sistema ou planilha (código, descrição, unidade, quantidade e custo), acesso ao estoque e uma pessoa que conheça os endereços.</dd></div>
+          <div><dt>Orçamento</dt><dd>Preço fechado antes de começar, conforme o número de itens, a organização do estoque e a complexidade da operação.</dd></div>
         </dl>
-        <a class="btn" href="#contato">Quero um Raio-X</a>
+        <a class="btn btn-claro btn-cheio" href="#contato" data-interesse="Raio-X do Estoque">Pedir orçamento do Raio-X</a>
       </aside>
     </div>
-  </div>
-</section>
 
-<section class="bloco" id="servicos">
-  <div class="faixa">
-    <h2>Depois do Raio-X, o que for preciso</h2>
-    <p class="intro">Cada serviço tem escopo e limite definidos por escrito. Nada de disponibilidade ilimitada nem promessa de zerar diferenças: isso depende também da rotina da sua equipe.</p>
-    <div class="servicos">
-      <article><h3>Inventário físico completo</h3><p>Contagem de todo o estoque, recontagem das diferenças, conciliação com o sistema e relatório por código, endereço e valor.</p><p class="quando">Para quem precisa de um saldo confiável de ponta a ponta.</p></article>
-      <article><h3>Diagnóstico de gestão de estoque</h3><p>Análise do recebimento, armazenagem, endereçamento, saída, devoluções e ajustes, com plano de ação priorizado.</p><p class="quando">Para quem quer atacar a causa das diferenças.</p></article>
-      <article><h3>Inventário rotativo e acompanhamento mensal</h3><p>Contagem periódica dos itens de maior valor, indicador de acuracidade mês a mês e reunião curta para corrigir o rumo.</p><p class="quando">Para manter o saldo certo sem parar tudo uma vez por ano.</p></article>
-      <article><h3>Implantação de controles</h3><p>Endereços, procedimentos simples, rotina de contagem, treinamento da equipe e ferramenta de contagem com leitor ou celular.</p><p class="quando">Para quem quer organizar de vez.</p></article>
+    <div class="comparativo" role="region" aria-labelledby="titulo-comp">
+      <h3 id="titulo-comp">Raio-X ou inventário completo?</h3>
+      <table class="tabela-comp">
+        <caption class="sr">Diferenças entre o Raio-X do Estoque por amostragem e o inventário físico completo</caption>
+        <thead><tr><th scope="col"><span class="sr">Aspecto</span></th><th scope="col">Raio-X do Estoque</th><th scope="col">Inventário completo</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">O que é contado</th><td data-rotulo="Raio-X">Uma amostra de itens</td><td data-rotulo="Inventário completo">Todos os itens do estoque</td></tr>
+          <tr><th scope="row">Para que serve</th><td data-rotulo="Raio-X">Medir a confiabilidade do saldo e priorizar ações</td><td data-rotulo="Inventário completo">Corrigir o saldo de todos os itens</td></tr>
+          <tr><th scope="row">Duração típica</th><td data-rotulo="Raio-X">1 dia de contagem</td><td data-rotulo="Inventário completo">Depende do tamanho e da organização</td></tr>
+          <tr><th scope="row">Limite</th><td data-rotulo="Raio-X">Indica a tendência; não garante que todo o estoque se comporte igual à amostra</td><td data-rotulo="Inventário completo">Retrato de um dia; sem mudança de processo, as diferenças voltam</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<section class="bloco claro" id="como-funciona">
+<!-- ===================== RELATÓRIO DE EXEMPLO ===================== -->
+<section class="secao secao-relatorio" id="relatorio" aria-labelledby="titulo-relatorio">
   <div class="faixa">
-    <h2>Como funciona</h2>
-    <ol class="etapas">
-      <li><h3>Conversa de 20 minutos</h3><p>Entendemos a operação, o sistema que você usa e o problema principal. Sem custo.</p></li>
-      <li><h3>Escopo e orçamento</h3><p>Proposta por escrito com o que entra, o que não entra, prazo e preço fechado.</p></li>
-      <li><h3>Preparação</h3><p>Você envia o saldo do sistema. Combinamos como tratar o que entrar ou sair durante a contagem.</p></li>
-      <li><h3>Contagem</h3><p>Contagem com leitor ou celular, recontagem das diferenças e registro de itens sem cadastro.</p></li>
-      <li><h3>Relatório e plano</h3><p>Conciliação, valores, causas prováveis e plano de ação, apresentados em uma conversa.</p></li>
+    <div class="cabeca-secao">
+      <p class="sobretitulo">O que você recebe</p>
+      <h2 id="titulo-relatorio">Exemplo de relatório</h2>
+      <p class="lead">Um relatório para o dono entender em cinco minutos e a equipe usar no dia seguinte. Os números abaixo são fictícios e todos se conferem entre si.</p>
+    </div>
+
+    <article class="relatorio" aria-labelledby="rel-titulo">
+      <header class="rel-cabeca">
+        <div>
+          <h3 id="rel-titulo">Raio-X do Estoque · Distribuidora de materiais elétricos e hidráulicos</h3>
+          <p>Amostra de 150 dos 1.380 itens cadastrados: 60 de maior valor + 90 sorteados</p>
+        </div>
+        <p class="aviso-ficticio" role="note"><strong>Demonstração.</strong> Empresa e números fictícios. Não representa um cliente real.</p>
+      </header>
+
+      <dl class="rel-kpis">
+        <div><dt>SKUs contados</dt><dd>150</dd><dd class="kpi-nota">de 1.380 cadastrados</dd></div>
+        <div class="kpi-bate"><dt>Itens que batem</dt><dd>78,7%</dd><dd class="kpi-nota">118 de 150</dd></div>
+        <div class="kpi-falta"><dt>Faltas estimadas</dt><dd>R$ 6.912,40</dd><dd class="kpi-nota">21 itens</dd></div>
+        <div class="kpi-sobra"><dt>Sobras estimadas</dt><dd>R$ 2.180,00</dd><dd class="kpi-nota">11 itens</dd></div>
+      </dl>
+
+      <div class="rel-composicao">
+        <p class="rel-subtitulo" id="comp-tit">Situação dos 150 itens contados</p>
+        <div class="barra-comp" role="img" aria-labelledby="comp-tit" aria-describedby="comp-leg">
+          <span class="seg-bate" style="--v:78.67%"></span><span class="seg-falta" style="--v:14%"></span><span class="seg-sobra" style="--v:7.33%"></span>
+        </div>
+        <ul class="legenda" id="comp-leg">
+          <li class="l-bate">118 batem</li><li class="l-falta">21 com falta</li><li class="l-sobra">11 com sobra</li>
+        </ul>
+        <p class="liquido">Diferença líquida: <strong>−R$ 4.732,40</strong>. Aparece só como referência: somar sobras com faltas esconde dois erros de controle diferentes.</p>
+      </div>
+
+      <div class="rel-grafico">
+        <div class="rel-grafico-cabeca">
+          <p class="rel-subtitulo" id="graf-tit">Principais divergências, em reais</p>
+          <p class="destaque-dado">As 8 maiores somam <strong>R$ 4.495,50</strong>, quase metade (49%) dos R$ 9.092,40 em diferenças. É por elas que a correção começa.</p>
+        </div>
+        <ul class="barras" aria-labelledby="graf-tit">
+          <li class="falta"><span class="b-nome">Disjuntor tripolar 63 A</span><span class="b-trilho" aria-hidden="true"><i style="--v:100%"></i></span><span class="b-valor">−R$ 1.278,00</span></li>
+          <li class="falta"><span class="b-nome">Quadro de distribuição 24 disjuntores</span><span class="b-trilho" aria-hidden="true"><i style="--v:81.06%"></i></span><span class="b-valor">−R$ 1.036,00</span></li>
+          <li class="sobra"><span class="b-nome">Cabo PP 3×2,5 mm (metro)</span><span class="b-trilho" aria-hidden="true"><i style="--v:54.93%"></i></span><span class="b-valor">+R$ 702,00</span></li>
+          <li class="falta"><span class="b-nome">Luminária LED 18 W</span><span class="b-trilho" aria-hidden="true"><i style="--v:35.05%"></i></span><span class="b-valor">−R$ 448,00</span></li>
+          <li class="sobra"><span class="b-nome">Tomada 2P+T 20 A</span><span class="b-trilho" aria-hidden="true"><i style="--v:30.67%"></i></span><span class="b-valor">+R$ 392,00</span></li>
+          <li class="falta"><span class="b-nome">Disjuntor bipolar 32 A</span><span class="b-trilho" aria-hidden="true"><i style="--v:21.31%"></i></span><span class="b-valor">−R$ 272,30</span></li>
+          <li class="sobra"><span class="b-nome">Registro de gaveta 3/4"</span><span class="b-trilho" aria-hidden="true"><i style="--v:19.95%"></i></span><span class="b-valor">+R$ 255,00</span></li>
+          <li class="falta"><span class="b-nome">Fita isolante 20 m</span><span class="b-trilho" aria-hidden="true"><i style="--v:8.78%"></i></span><span class="b-valor">−R$ 112,20</span></li>
+        </ul>
+        <ul class="legenda legenda-pequena" aria-hidden="true"><li class="l-falta">Falta</li><li class="l-sobra">Sobra</li></ul>
+      </div>
+
+      <div class="rel-tabela">
+        <table class="tabela-conc tabela-rel" id="tabela-rel">
+          <caption class="rel-subtitulo">Detalhe das principais divergências</caption>
+          <thead><tr><th scope="col">Item</th><th scope="col">Sistema</th><th scope="col">Físico</th><th scope="col">Diferença</th><th scope="col">Custo unit.</th><th scope="col">Impacto</th></tr></thead>
+          <tbody>
+            <tr data-sis="24" data-fis="15" data-custo="142.00"><th scope="row">Disjuntor tripolar 63 A</th><td data-rotulo="Sistema">24</td><td data-rotulo="Físico">15</td><td data-rotulo="Diferença" class="dif falta">−9</td><td data-rotulo="Custo unit.">R$ 142,00</td><td data-rotulo="Impacto" class="dif falta">−R$ 1.278,00</td></tr>
+            <tr data-sis="10" data-fis="6" data-custo="259.00"><th scope="row">Quadro de distribuição 24 disjuntores</th><td data-rotulo="Sistema">10</td><td data-rotulo="Físico">6</td><td data-rotulo="Diferença" class="dif falta">−4</td><td data-rotulo="Custo unit.">R$ 259,00</td><td data-rotulo="Impacto" class="dif falta">−R$ 1.036,00</td></tr>
+            <tr data-sis="500" data-fis="680" data-custo="3.90"><th scope="row">Cabo PP 3×2,5 mm (metro)</th><td data-rotulo="Sistema">500</td><td data-rotulo="Físico">680</td><td data-rotulo="Diferença" class="dif sobra">+180</td><td data-rotulo="Custo unit.">R$ 3,90</td><td data-rotulo="Impacto" class="dif sobra">+R$ 702,00</td></tr>
+            <tr data-sis="36" data-fis="29" data-custo="64.00"><th scope="row">Luminária LED 18 W</th><td data-rotulo="Sistema">36</td><td data-rotulo="Físico">29</td><td data-rotulo="Diferença" class="dif falta">−7</td><td data-rotulo="Custo unit.">R$ 64,00</td><td data-rotulo="Impacto" class="dif falta">−R$ 448,00</td></tr>
+            <tr data-sis="210" data-fis="250" data-custo="9.80"><th scope="row">Tomada 2P+T 20 A</th><td data-rotulo="Sistema">210</td><td data-rotulo="Físico">250</td><td data-rotulo="Diferença" class="dif sobra">+40</td><td data-rotulo="Custo unit.">R$ 9,80</td><td data-rotulo="Impacto" class="dif sobra">+R$ 392,00</td></tr>
+            <tr data-sis="48" data-fis="41" data-custo="38.90"><th scope="row">Disjuntor bipolar 32 A</th><td data-rotulo="Sistema">48</td><td data-rotulo="Físico">41</td><td data-rotulo="Diferença" class="dif falta">−7</td><td data-rotulo="Custo unit.">R$ 38,90</td><td data-rotulo="Impacto" class="dif falta">−R$ 272,30</td></tr>
+            <tr data-sis="30" data-fis="36" data-custo="42.50"><th scope="row">Registro de gaveta 3/4"</th><td data-rotulo="Sistema">30</td><td data-rotulo="Físico">36</td><td data-rotulo="Diferença" class="dif sobra">+6</td><td data-rotulo="Custo unit.">R$ 42,50</td><td data-rotulo="Impacto" class="dif sobra">+R$ 255,00</td></tr>
+            <tr data-sis="140" data-fis="118" data-custo="5.10"><th scope="row">Fita isolante 20 m</th><td data-rotulo="Sistema">140</td><td data-rotulo="Físico">118</td><td data-rotulo="Diferença" class="dif falta">−22</td><td data-rotulo="Custo unit.">R$ 5,10</td><td data-rotulo="Impacto" class="dif falta">−R$ 112,20</td></tr>
+          </tbody>
+          <tfoot>
+            <tr class="linha-outros"><th scope="row">Outras 24 divergências</th><td colspan="5" data-rotulo="Impacto"><span class="falta">16 faltas: −R$ 3.765,90</span> <span class="sobra">8 sobras: +R$ 831,00</span></td></tr>
+            <tr class="linha-total"><th scope="row">Total da amostra</th><td colspan="5" data-rotulo="Impacto"><span class="falta">Faltas: −R$ 6.912,40</span> <span class="sobra">Sobras: +R$ 2.180,00</span></td></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="rel-analise">
+        <div>
+          <h4>Causas prováveis</h4>
+          <ol>
+            <li><b>Unidade de medida.</b> O cabo PP entra em rolo de 100 m e sai em metro; a sobra de 180 m indica conversão errada no recebimento.</li>
+            <li><b>Saída sem baixa.</b> Disjuntores e fita isolante saem pelo balcão sem pedido lançado no sistema.</li>
+            <li><b>Troca de código.</b> A tomada 20 A sobra enquanto a de 10 A falta: vendas lançadas no código do item parecido.</li>
+            <li><b>Recebimento sem conferência.</b> Quadros de distribuição entram pela nota, sem contagem física na chegada.</li>
+          </ol>
+        </div>
+        <div>
+          <h4>Ações recomendadas</h4>
+          <ol>
+            <li>Corrigir o fator de conversão dos cabos no cadastro e recontá-los antes de qualquer ajuste.</li>
+            <li>Nenhuma saída de balcão sem pedido; conferência semanal dos itens pequenos de maior giro.</li>
+            <li>Separar e etiquetar as tomadas 10 A e 20 A em endereços diferentes.</li>
+            <li>Conferência cega no recebimento dos itens de maior valor.</li>
+            <li>Contagem rotativa mensal dos 60 itens de maior valor para medir a evolução.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="rel-rodape">Limitações descritas no relatório real: tamanho da amostra, confiabilidade dos custos do cadastro e movimentações ocorridas durante a contagem.</p>
+    </article>
+
+    <div class="cta-faixa">
+      <p>Quer ver esse relatório com os números do seu estoque?</p>
+      <a class="btn btn-principal" href="#contato" data-interesse="Raio-X do Estoque">Solicitar avaliação</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVIÇOS ===================== -->
+<section class="secao secao-servicos" id="servicos" aria-labelledby="titulo-servicos">
+  <div class="faixa">
+    <div class="cabeca-secao">
+      <p class="sobretitulo">Serviços</p>
+      <h2 id="titulo-servicos">Do primeiro diagnóstico ao controle no dia a dia</h2>
+      <p class="lead">Cada etapa resolve uma necessidade diferente e tem escopo por escrito. Você pode parar em qualquer uma delas.</p>
+    </div>
+
+    <ol class="trilha">
+      <li class="trilha-destaque">
+        <p class="etapa-num">Etapa 1</p>
+        <h3>Raio-X do Estoque</h3>
+        <p>Avaliação por amostragem para investigar a confiabilidade do saldo e o valor das divergências.</p>
+        <p class="beneficio">Você descobre o tamanho do problema antes de investir num inventário completo.</p>
+        <ul class="inclui" aria-label="O Raio-X inclui">
+          <li>Amostra dos itens de maior valor + sorteio entre os demais</li>
+          <li>Contagem cega e recontagem de toda divergência</li>
+          <li>Faltas e sobras em reais, separadas</li>
+          <li>Causas prováveis e ações em ordem de prioridade</li>
+          <li>Apresentação dos resultados em uma conversa</li>
+        </ul>
+        <a class="btn btn-claro" href="#contato" data-interesse="Raio-X do Estoque">Solicitar avaliação</a>
+      </li>
+      <li>
+        <p class="etapa-num">Etapa 2</p>
+        <h3>Inventário físico completo</h3>
+        <p>Contagem integral, recontagem das divergências, conciliação com o sistema e relatório por item, endereço e valor.</p>
+        <p class="beneficio">Saldo confiável de ponta a ponta para comprar, vender e fechar o balanço.</p>
+        <a class="link-seta" href="#contato" data-interesse="Inventário físico completo">Pedir avaliação do inventário</a>
+      </li>
+      <li>
+        <p class="etapa-num">Etapa 3</p>
+        <h3>Diagnóstico de gestão</h3>
+        <p>Análise do recebimento, armazenagem, endereçamento, saídas, devoluções e ajustes que geram os erros.</p>
+        <p class="beneficio">Plano de ação priorizado para atacar a causa, não só o saldo.</p>
+        <a class="link-seta" href="#contato" data-interesse="Diagnóstico de gestão">Pedir avaliação do diagnóstico</a>
+      </li>
+      <li>
+        <p class="etapa-num">Etapa 4</p>
+        <h3>Implantação de controles</h3>
+        <p>Endereçamento, procedimentos simples, rotina de inventário rotativo e treinamento da equipe.</p>
+        <p class="beneficio">A operação passa a manter o saldo certo sem depender de mutirão.</p>
+        <a class="link-seta" href="#contato" data-interesse="Implantação de controles">Pedir avaliação da implantação</a>
+      </li>
+      <li>
+        <p class="etapa-num">Etapa 5</p>
+        <h3>Acompanhamento mensal</h3>
+        <p>Contagens periódicas dos itens de maior valor, indicador de acuracidade mês a mês e reunião curta de correção.</p>
+        <p class="beneficio">Você acompanha a evolução e corrige o rumo cedo.</p>
+        <a class="link-seta" href="#contato" data-interesse="Acompanhamento mensal">Pedir avaliação do acompanhamento</a>
+      </li>
     </ol>
   </div>
 </section>
 
-<section class="bloco">
+<!-- ===================== COMO FUNCIONA ===================== -->
+<section class="secao secao-processo" id="como-funciona" aria-labelledby="titulo-processo">
   <div class="faixa">
-    <h2>O que você recebe</h2>
-    <p class="intro">Um relatório para o dono ler em 5 minutos e a equipe usar no dia seguinte.</p>
-    <div class="relatorio" role="img" aria-label="Exemplo de relatório do Raio-X do Estoque com dados fictícios">
-      <div class="topo-rel"><strong>Raio-X do Estoque · Distribuidora exemplo</strong><span>Dados fictícios, só para mostrar o formato</span></div>
-      <dl class="numeros" style="margin:0">
-        <div><dt>Itens contados</dt><dd>214</dd><small>de 1.380 cadastrados</small></div>
-        <div><dt>Itens que batem</dt><dd>81%</dd><small>173 de 214</small></div>
-        <div><dt>Faltas</dt><dd style="color:var(--falta)">R$ 6.912</dd><small>27 itens</small></div>
-        <div><dt>Sobras</dt><dd style="color:var(--sobra)">R$ 2.180</dd><small>14 itens</small></div>
-      </dl>
-      <div class="rel-corpo">
-        <div>
-          <h3>Maiores diferenças</h3>
-          <table>
-            <thead><tr><th>Item</th><th class="n">Dif.</th><th class="n">Valor</th></tr></thead>
-            <tbody>
-              <tr><td>Disjuntor tripolar 63 A</td><td class="n">−9</td><td class="n" style="color:var(--falta)">−R$ 1.278</td></tr>
-              <tr><td>Quadro de distribuição 24 disj.</td><td class="n">−4</td><td class="n" style="color:var(--falta)">−R$ 1.036</td></tr>
-              <tr><td>Cabo PP 3×2,5 mm (m)</td><td class="n">+180</td><td class="n" style="color:var(--sobra)">+R$ 702</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <h3>Causas prováveis</h3>
-          <ol>
-            <li>Cabo vendido em metro e recebido em rolo, sem conversão de unidade.</li>
-            <li>Saídas de balcão sem baixa no sistema.</li>
-            <li>Mesmo produto em dois endereços, contado em um só.</li>
-          </ol>
-        </div>
-      </div>
-      <p class="aviso-ex">Exemplo com números inventados. Nenhum dado de cliente real é exibido neste site.</p>
+    <div class="cabeca-secao">
+      <p class="sobretitulo">Como funciona</p>
+      <h2 id="titulo-processo">Da primeira conversa ao relatório</h2>
     </div>
+    <ol class="processo">
+      <li><h3>Conversa inicial</h3><p>20 minutos, sem custo, para entender o estoque e o problema principal.</p></li>
+      <li><h3>Operação e dados</h3><p>Entendemos o layout, o sistema usado e os relatórios que ele exporta.</p></li>
+      <li><h3>Proposta</h3><p>Escopo, prazo e preço fechado por escrito, com o que entra e o que não entra.</p></li>
+      <li><h3>Preparação</h3><p>Lista de contagem, endereços, equipe de apoio e corte de movimentações combinados.</p></li>
+      <li><h3>Contagem e validação</h3><p>Contagem cega com leitor ou celular e recontagem de toda divergência.</p></li>
+      <li><h3>Relatório e apresentação</h3><p>Conciliação, valores, causas e plano de ação, apresentados em uma conversa.</p></li>
+    </ol>
+    <p class="nota-processo"><strong>Movimentações durante a contagem.</strong> Entradas e saídas no período da contagem são o principal motivo de diferença falsa. Antes de começar, combinamos por escrito como tratá-las: pausa da expedição, corte de horário ou registro das movimentações para conciliar depois. Algumas operações precisam de pausa parcial; isso fica claro já na proposta.</p>
   </div>
 </section>
 
-<section class="bloco claro" id="sobre">
-  <div class="faixa sobre">
-    <div class="texto">
-      <h2>Quem faz</h2>
-      <p style="margin-top:1rem">Sou Arthur Angioletto. Há seis anos trabalho com logística e estoque, hoje liderando a logística de uma operação com mais de um armazém, controle de lote e validade e rastreabilidade de produtos.</p>
-      <p>Recebimento, armazenagem, expedição, inventário e análise de divergências fazem parte do meu dia a dia, em operação com Protheus/TOTVS. Criei a Lastro para levar esse método para empresas que não têm uma área de logística dedicada.</p>
+<!-- ===================== SOBRE ===================== -->
+<section class="secao secao-sobre" id="sobre" aria-labelledby="titulo-sobre">
+  <div class="faixa sobre-grade">
+    <div class="sobre-texto">
+      <p class="sobretitulo">Quem faz</p>
+      <h2 id="titulo-sobre">Arthur Angioletto</h2>
+      <p class="papel">Fundador da Lastro</p>
+      <p>Há seis anos trabalho com logística e estoque, hoje liderando a logística de uma operação com mais de um armazém, controle de lote e validade e rastreabilidade de produtos.</p>
+      <p>Recebimento, armazenagem, expedição, inventário e análise de divergências fazem parte do meu dia a dia, em operação com ERP Protheus (TOTVS). Criei a Lastro para levar esse método a empresas que não têm uma área de logística dedicada.</p>
+      <ul class="areas" aria-label="Áreas de experiência">
+        <li>Recebimento</li><li>Armazenagem</li><li>Expedição</li><li>Inventário</li><li>Análise de divergências</li><li>Lote e validade</li>
+      </ul>
     </div>
     <div class="compromissos">
-      <h3>Compromissos</h3>
+      <h3>Compromissos de trabalho</h3>
       <ul>
-        <li><b>Sigilo</b><span>Os seus dados são usados só no seu projeto. Assinamos termo de confidencialidade quando você quiser.</span></li>
-        <li><b>Escopo por escrito</b><span>Você sabe antes o que será feito, em quanto tempo e por quanto.</span></li>
-        <li><b>Números honestos</b><span>Faltas e sobras separadas, limitações do levantamento descritas no relatório.</span></li>
+        <li><b>Confidencialidade</b><span>Os dados da sua empresa são usados só no seu projeto. Termo de confidencialidade assinado antes de receber qualquer arquivo, se você quiser.</span></li>
+        <li><b>Escopo por escrito</b><span>Você sabe antes o que será feito, o que fica de fora, em quanto tempo e por quanto.</span></li>
+        <li><b>Transparência nas divergências</b><span>Faltas e sobras separadas, nenhum ajuste escondido e as limitações do levantamento descritas no relatório.</span></li>
+        <li><b>Sem promessa fácil</b><span>Nada de economia garantida ou "diferença zero". Mostramos o que foi encontrado e o que fazer primeiro.</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="bloco" id="duvidas">
-  <div class="faixa">
-    <h2>Dúvidas comuns</h2>
+<!-- ===================== DÚVIDAS ===================== -->
+<section class="secao secao-duvidas" id="duvidas" aria-labelledby="titulo-duvidas">
+  <div class="faixa duvidas-grade">
+    <div class="cabeca-secao">
+      <p class="sobretitulo">Dúvidas</p>
+      <h2 id="titulo-duvidas">Perguntas frequentes</h2>
+      <p class="lead">Não achou a sua? Pergunte pelo <a href="#contato">formulário</a> ou direto no WhatsApp.</p>
+    </div>
     <div class="duvidas">
-      <details><summary>Preciso parar a operação para a contagem?</summary><p>Na maioria dos casos, não. O Raio-X é feito em fim de semana ou fora do horário de expedição. Quando o estoque não pode parar, combinamos um corte de horário e registramos as movimentações durante a contagem para conciliar depois.</p></details>
-      <details><summary>Preciso ter um sistema de estoque?</summary><p>Ajuda muito, porque o Raio-X compara o físico com o saldo registrado. Se você controla em planilha, ela também serve. Sem nenhum registro, o trabalho vira um inventário de levantamento, sem conciliação.</p></details>
-      <details><summary>Quanto custa?</summary><p>Depende do número de itens, de como o estoque está organizado e da qualidade dos dados. Depois da conversa de 20 minutos você recebe uma proposta com preço fechado.</p></details>
-      <details><summary>Vocês garantem que as diferenças vão acabar?</summary><p>Não. Mostramos onde estão as diferenças e as causas mais prováveis, e ajudamos a corrigir. Manter o saldo certo depende também da rotina da equipe, e é por isso que existe o acompanhamento mensal.</p></details>
-      <details><summary>Como ficam os dados da minha empresa?</summary><p>São usados apenas para o seu projeto, não são compartilhados e são apagados ao final se você pedir. Veja a <a href="privacidade.html">política de privacidade</a>.</p></details>
+      <details><summary>Qual a diferença entre o Raio-X e o inventário completo?</summary><p>O Raio-X conta uma amostra para medir a confiabilidade do saldo e mostrar onde estão as maiores divergências. O inventário completo conta todos os itens e corrige o saldo de cada um. A amostra indica a tendência, mas não garante que todo o estoque se comporte igual a ela.</p></details>
+      <details><summary>Preciso parar a operação para a contagem?</summary><p>Depende do estoque. O Raio-X costuma ser feito em fim de semana ou fora do horário de expedição. Quando o estoque não pode parar, combinamos um corte de horário e registramos as movimentações para conciliar depois. Em alguns casos uma pausa parcial é necessária, e isso fica claro na proposta.</p></details>
+      <details><summary>Preciso ter um sistema de estoque?</summary><p>Ajuda, porque a conciliação compara o físico com o saldo registrado. Uma planilha também serve. Sem nenhum registro, o trabalho vira um levantamento físico, sem conciliação.</p></details>
+      <details><summary>O que preciso enviar antes?</summary><p>Um relatório de saldo exportado do sistema ou planilha, com código, descrição, unidade, quantidade e custo unitário. Se houver endereço de armazenagem, lote ou validade, melhor ainda.</p></details>
+      <details><summary>Quanto custa?</summary><p>Depende do número de itens, da organização do estoque e da qualidade dos dados. Depois da conversa inicial você recebe uma proposta com preço fechado.</p></details>
+      <details><summary>Vocês garantem que as diferenças vão acabar?</summary><p>Não. Mostramos onde estão as diferenças e as causas mais prováveis, e ajudamos a corrigir. Manter o saldo certo depende também da rotina da equipe; para isso existe o acompanhamento mensal.</p></details>
+      <details><summary>Como ficam os dados da minha empresa?</summary><p>São usados apenas no seu projeto, não são compartilhados e são apagados ao final se você pedir. Veja a <a href="privacidade.html">política de privacidade</a>.</p></details>
+      <details><summary>Atendem fora de São Paulo capital?</summary><p>No momento, o atendimento presencial é na cidade de São Paulo. Para outras cidades da Grande São Paulo, consulte pelo WhatsApp.</p></details>
     </div>
   </div>
 </section>
 
-<section class="bloco contato" id="contato">
-  <div class="faixa">
-    <div>
-      <h2>Vamos ver o tamanho da diferença?</h2>
-      <p class="intro">Conte em poucas linhas como é o seu estoque. A resposta vem em até 1 dia útil para marcar a conversa de 20 minutos.</p>
-      <div class="canais" id="canais"></div>
+<!-- ===================== CONTATO ===================== -->
+<section class="secao secao-contato" id="contato" aria-labelledby="titulo-contato">
+  <div class="faixa contato-grade">
+    <div class="contato-texto">
+      <p class="sobretitulo">Pedir avaliação</p>
+      <h2 id="titulo-contato">Vamos ver o tamanho da diferença?</h2>
+      <p class="lead">Conte em poucas linhas como é o seu estoque. A resposta vem em até 1 dia útil para marcar a conversa de 20 minutos.</p>
+      <ul class="contato-info">
+        <li><span>WhatsApp</span><a id="link-whats" href="https://wa.me/5511950600817" target="_blank" rel="noopener">(11) 95060-0817</a></li>
+        <li><span>Atendimento</span>São Paulo capital</li>
+        <li><span>Privacidade</span>Este site não grava o que você digita. A mensagem é montada no seu navegador e enviada por você, pelo WhatsApp.</li>
+      </ul>
     </div>
-    <form class="orcamento" id="form-orcamento" novalidate>
-      <label class="campo"><span>Seu nome <em aria-hidden="true">*</em></span><input class="entrada" name="nome" autocomplete="name" required maxlength="80"><small class="erro-campo" data-erro="nome"></small></label>
-      <label class="campo"><span>Empresa <em aria-hidden="true">*</em></span><input class="entrada" name="empresa" autocomplete="organization" required maxlength="80"><small class="erro-campo" data-erro="empresa"></small></label>
-      <label class="campo"><span>Bairro ou cidade</span><input class="entrada" name="local" maxlength="60"></label>
-      <label class="campo"><span>Segmento</span>
-        <select class="entrada" name="segmento"><option value="">Escolha</option><option>Distribuidora (elétrica, hidráulica, ferragens)</option><option>Embalagens</option><option>E-commerce com estoque próprio</option><option>Autopeças</option><option>Material de construção</option><option>Atacado</option><option>Outro</option></select></label>
-      <label class="campo"><span>Itens diferentes no estoque (aprox.)</span>
-        <select class="entrada" name="skus"><option value="">Não sei</option><option>Até 300</option><option>300 a 1.000</option><option>1.000 a 5.000</option><option>Mais de 5.000</option></select></label>
-      <label class="campo"><span>Sistema que usa</span><input class="entrada" name="sistema" maxlength="60" placeholder="Ex.: Bling, Tiny, planilha"></label>
-      <label class="campo largo"><span>Principal problema <em aria-hidden="true">*</em></span><textarea class="entrada" name="problema" required maxlength="800" placeholder="Ex.: vendemos itens que não estão no estoque e não sabemos de onde vem a diferença"></textarea><small class="erro-campo" data-erro="problema"></small></label>
-      <label class="campo largo"><span>Para quando?</span>
-        <select class="entrada" name="prazo"><option value="">Sem pressa definida</option><option>Este mês</option><option>Próximos 2 meses</option><option>Antes do fechamento do ano</option></select></label>
-      <label class="armadilha" aria-hidden="true">Não preencha<input name="site" tabindex="-1" autocomplete="off"></label>
-      <div class="largo"><button class="btn btn-principal" type="submit" id="enviar">Enviar pelo WhatsApp</button></div>
-      <p class="largo privacidade-nota">Os dados são usados só para responder ao seu pedido. Nada fica gravado neste site: a mensagem é aberta no seu WhatsApp ou e-mail para você enviar. <a href="privacidade.html">Política de privacidade</a>.</p>
-      <p class="largo retorno-form" id="retorno" aria-live="polite"></p>
-    </form>
+
+    <div class="contato-caixa">
+      <form class="formulario" id="form-orcamento" novalidate aria-describedby="form-obrig">
+        <p class="obrig-nota" id="form-obrig">Campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
+        <div class="campo">
+          <label for="f-nome">Seu nome <span class="obrig" aria-hidden="true">*</span></label>
+          <input class="entrada" id="f-nome" name="nome" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="e-nome">
+          <p class="erro-campo" id="e-nome"></p>
+        </div>
+        <div class="campo">
+          <label for="f-empresa">Empresa <span class="obrig" aria-hidden="true">*</span></label>
+          <input class="entrada" id="f-empresa" name="empresa" autocomplete="organization" required minlength="2" maxlength="80" aria-describedby="e-empresa">
+          <p class="erro-campo" id="e-empresa"></p>
+        </div>
+        <div class="campo">
+          <label for="f-local">Bairro ou cidade <span class="obrig" aria-hidden="true">*</span></label>
+          <input class="entrada" id="f-local" name="local" autocomplete="address-level2" required minlength="2" maxlength="60" placeholder="Ex.: Brás, São Paulo" aria-describedby="e-local">
+          <p class="erro-campo" id="e-local"></p>
+        </div>
+        <div class="campo">
+          <label for="f-segmento">Segmento <span class="obrig" aria-hidden="true">*</span></label>
+          <select class="entrada" id="f-segmento" name="segmento" required aria-describedby="e-segmento">
+            <option value="">Escolha</option>
+            <option>Distribuidora</option>
+            <option>Material de construção</option>
+            <option>Autopeças</option>
+            <option>Atacado</option>
+            <option>Embalagens</option>
+            <option>E-commerce com estoque próprio</option>
+            <option>Outro</option>
+          </select>
+          <p class="erro-campo" id="e-segmento"></p>
+        </div>
+        <div class="campo">
+          <label for="f-skus">Itens diferentes (SKUs), aprox.</label>
+          <select class="entrada" id="f-skus" name="skus">
+            <option value="">Não sei</option>
+            <option>Até 300</option>
+            <option>300 a 1.000</option>
+            <option>1.000 a 5.000</option>
+            <option>Mais de 5.000</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-sistema">Sistema que usa</label>
+          <input class="entrada" id="f-sistema" name="sistema" maxlength="60" list="sistemas" placeholder="Ex.: Bling, Tiny, planilha">
+          <datalist id="sistemas"><option value="Bling"><option value="Tiny (Olist)"><option value="Omie"><option value="Protheus (TOTVS)"><option value="SAP Business One"><option value="Planilha"><option value="Nenhum"></datalist>
+        </div>
+        <div class="campo">
+          <label for="f-interesse">Interesse</label>
+          <select class="entrada" id="f-interesse" name="interesse">
+            <option value="">Ainda não sei</option>
+            <option>Raio-X do Estoque</option>
+            <option>Inventário físico completo</option>
+            <option>Diagnóstico de gestão</option>
+            <option>Implantação de controles</option>
+            <option>Acompanhamento mensal</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-prazo">Prazo desejado</label>
+          <select class="entrada" id="f-prazo" name="prazo">
+            <option value="">Sem prazo definido</option>
+            <option>Este mês</option>
+            <option>Próximos 2 meses</option>
+            <option>Antes do fechamento do ano</option>
+          </select>
+        </div>
+        <div class="campo campo-largo">
+          <label for="f-problema">Principal problema <span class="obrig" aria-hidden="true">*</span></label>
+          <textarea class="entrada" id="f-problema" name="problema" required minlength="10" maxlength="800" rows="4" placeholder="Ex.: vendemos itens que não estão no estoque e não sabemos de onde vem a diferença" aria-describedby="e-problema c-problema"></textarea>
+          <p class="contador" id="c-problema" aria-live="off">0/800</p>
+          <p class="erro-campo" id="e-problema"></p>
+        </div>
+        <div class="armadilha" aria-hidden="true"><label for="f-site">Não preencha este campo</label><input id="f-site" name="site" tabindex="-1" autocomplete="off"></div>
+        <div class="campo-largo">
+          <button class="btn btn-principal btn-cheio btn-grande" type="submit" id="revisar">Revisar mensagem</button>
+          <p class="erro-geral" id="erro-geral" role="alert"></p>
+        </div>
+      </form>
+
+      <div class="revisao" id="revisao" hidden>
+        <h3 id="revisao-titulo" tabindex="-1">Confira a mensagem</h3>
+        <p class="revisao-ajuda">Nada foi enviado ainda. O botão abre o WhatsApp com este texto pronto; a mensagem só sai quando você tocar em enviar lá.</p>
+        <pre class="revisao-texto" id="revisao-texto"></pre>
+        <div class="revisao-acoes">
+          <a class="btn btn-whats btn-grande" id="abrir-whats" href="https://wa.me/5511950600817" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+          <button class="btn btn-secundario" type="button" id="copiar">Copiar texto</button>
+          <button class="btn btn-texto" type="button" id="editar">Editar</button>
+        </div>
+        <p class="revisao-status" id="revisao-status" role="status"></p>
+      </div>
+    </div>
   </div>
 </section>
 </main>
 
-<footer><div class="faixa"><span>Lastro · Inventário e gestão de estoque · São Paulo, SP</span><a href="privacidade.html">Política de privacidade</a></div></footer>
+<footer class="rodape">
+  <div class="faixa rodape-grade">
+    <div>
+      <a class="marca marca-rodape" href="#inicio"><img src="assets/logo.svg" alt="" width="28" height="28"><span>Lastro</span></a>
+      <p>Inventário físico e consultoria de estoque · São Paulo, SP</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <ul>
+        <li><a href="#raio-x">Raio-X do Estoque</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="privacidade.html">Política de privacidade</a></li>
+        <li><a href="https://wa.me/5511950600817" target="_blank" rel="noopener">WhatsApp (11) 95060-0817</a></li>
+      </ul>
+    </nav>
+    <p class="rodape-nota">Os exemplos de relatório e conciliação deste site usam dados fictícios.</p>
+  </div>
+</footer>
+
+<a class="cta-movel" id="cta-movel" href="#contato">Solicitar avaliação</a>
 
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>

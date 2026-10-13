@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lastroestoque.com.br/sitemap.xml

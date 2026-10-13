@@ -279,7 +279,7 @@ def pagina(a, outros):
     </ul>
   </nav>
 </main>
-<footer class="rodape"><div class="faixa rodape-grade"><div><a class="marca marca-rodape" href="../"><img src="../assets/logo.svg" alt="" width="28" height="28"><span class="marca-nome">Lastro<small>Inventário e Consultoria de Estoque</small></span></a><p>Inventário físico, Raio-X do Estoque e consultoria de estoque em São Paulo, SP</p></div><nav aria-label="Rodapé"><ul><li><a href="../">Início</a></li><li><a href="../#contato">Pedir avaliação</a></li><li><a href="../privacidade.html">Política de privacidade</a></li></ul></nav></div></footer>
+<footer class="rodape"><div class="faixa rodape-grade"><div><a class="marca marca-rodape" href="../"><img src="../assets/logo.svg" alt="" width="28" height="28"><span class="marca-nome">Lastro<small>Inventário e Consultoria de Estoque</small></span></a><p>Inventário físico, Raio-X do Estoque e consultoria de estoque em São Paulo, SP</p></div><nav aria-label="Rodapé"><ul><li><a href="../">Início</a></li><li><a href="../sistemas.html">Sistemas</a></li><li><a href="../#contato">Pedir avaliação</a></li><li><a href="../privacidade.html">Política de privacidade</a></li></ul></nav></div></footer>
 </body>
 </html>
 """
@@ -292,7 +292,7 @@ def main():
         with open(os.path.join(RAIZ, "conteudos", a["slug"] + ".html"), "w", encoding="utf-8") as f:
             f.write(pagina(a, outros))
     # sitemap
-    urls = [BASE, BASE + "privacidade.html"] + [f"{BASE}conteudos/{a['slug']}.html" for a in ARTIGOS]
+    urls = [BASE, BASE + "sistemas.html", BASE + "privacidade.html"] + [f"{BASE}conteudos/{a['slug']}.html" for a in ARTIGOS]
     linhas = "\n".join(f"  <url><loc>{u}</loc><lastmod>{DATA}</lastmod></url>" for u in urls)
     with open(os.path.join(RAIZ, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{linhas}\n</urlset>\n')

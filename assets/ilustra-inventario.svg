@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
+<title id="t">Equipe da Lastro fazendo inventário em um armazém</title>
+<desc id="d">Ilustração: uma pessoa lê com leitor de código de barras a etiqueta de uma caixa na estante B-03 enquanto outra confere a contagem em um tablet, ao lado de um palete já contado.</desc>
+<defs>
+  <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f6"/><stop offset="1" stop-color="#f7f9fb"/></linearGradient>
+  <pattern id="parede" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#e1e7ee" stroke-width="1"/></pattern>
+</defs>
+<!-- fundo -->
+<rect width="1200" height="560" fill="url(#ceu)"/>
+<rect width="1200" height="470" fill="url(#parede)" opacity=".7"/>
+<rect y="470" width="1200" height="90" fill="#e6ebf1"/>
+<path d="M0 470H1200" stroke="#cdd6e0" stroke-width="2"/>
+<g stroke="#d7dee6" stroke-width="2"><path d="M180 560 260 470"/><path d="M520 560 560 470"/><path d="M860 560 840 470"/><path d="M1180 560 1110 470"/></g>
+
+<!-- estante A -->
+<g>
+  <rect x="58" y="96" width="14" height="376" rx="3" fill="#24476f"/>
+  <rect x="226" y="96" width="14" height="376" rx="3" fill="#24476f"/>
+  <rect x="394" y="96" width="14" height="376" rx="3" fill="#24476f"/>
+  <g fill="#c96a2b"><rect x="58" y="200" width="350" height="10" rx="2"/><rect x="58" y="326" width="350" height="10" rx="2"/><rect x="58" y="452" width="350" height="10" rx="2"/></g>
+  <!-- caixas nível 1 -->
+  <g><rect x="80" y="128" width="64" height="72" rx="3" fill="#d6b48a"/><rect x="148" y="146" width="70" height="54" rx="3" fill="#c9a476"/><rect x="246" y="120" width="70" height="80" rx="3" fill="#d6b48a"/><rect x="320" y="150" width="66" height="50" rx="3" fill="#c9a476"/></g>
+  <!-- caixas nível 2 -->
+  <g><rect x="80" y="252" width="74" height="74" rx="3" fill="#c9a476"/><rect x="158" y="270" width="60" height="56" rx="3" fill="#d6b48a"/><rect x="246" y="246" width="68" height="80" rx="3" fill="#d6b48a"/><rect x="318" y="262" width="68" height="64" rx="3" fill="#c9a476"/></g>
+  <!-- caixas nível 3 -->
+  <g><rect x="80" y="380" width="66" height="72" rx="3" fill="#d6b48a"/><rect x="150" y="396" width="68" height="56" rx="3" fill="#c9a476"/><rect x="246" y="386" width="140" height="66" rx="3" fill="#d6b48a"/></g>
+  <!-- etiquetas das caixas -->
+  <g fill="#fff"><rect x="92" y="150" width="40" height="22" rx="2"/><rect x="258" y="146" width="44" height="24" rx="2"/><rect x="92" y="272" width="44" height="24" rx="2"/><rect x="330" y="282" width="44" height="24" rx="2"/><rect x="292" y="402" width="50" height="26" rx="2"/></g>
+  <g stroke="#16202b" stroke-width="1.6"><path d="M97 156v10M101 156v10M104 156v10M109 156v10M113 156v10M118 156v10M121 156v10M126 156v10"/><path d="M336 288v12M340 288v12M343 288v12M348 288v12M352 288v12M357 288v12M361 288v12M366 288v12"/></g>
+  <!-- placas de endereço -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+    <rect x="128" y="212" width="44" height="18" rx="3" fill="#fdf3d8"/><text x="150" y="225" fill="#74510a">B-01</text>
+    <rect x="296" y="212" width="44" height="18" rx="3" fill="#fdf3d8"/><text x="318" y="225" fill="#74510a">B-02</text>
+    <rect x="296" y="338" width="44" height="18" rx="3" fill="#fdf3d8"/><text x="318" y="351" fill="#74510a">B-03</text>
+  </g>
+</g>
+
+<!-- feixe do leitor -->
+<path d="M470 262 352 284 352 300Z" fill="#b3362b" opacity=".28"/>
+<path d="M470 262 352 292" stroke="#b3362b" stroke-width="2.5" stroke-linecap="round"/>
+
+<!-- pessoa 1: leitor -->
+<g>
+  <ellipse cx="520" cy="474" rx="58" ry="9" fill="#cdd6e0"/>
+  <rect x="496" y="370" width="22" height="100" rx="10" fill="#1a3657"/>
+  <rect x="524" y="370" width="22" height="100" rx="10" fill="#1a3657"/>
+  <path d="M490 470h32v8h-36z" fill="#16202b"/><path d="M522 470h34v8h-36z" fill="#16202b"/>
+  <path d="M486 270q34-22 70 0l6 108h-82z" fill="#2b5d8f"/>
+  <path d="M492 274q28-16 58 0l4 104h-66z" fill="#13734d"/>
+  <path d="M492 330h62M490 352h66" stroke="#dff2e8" stroke-width="6"/>
+  <rect x="508" y="292" width="30" height="12" rx="3" fill="#fff"/><text x="523" y="301" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="700" fill="#10233a" text-anchor="middle">LASTRO</text>
+  <path d="M492 282 466 268" stroke="#2b5d8f" stroke-width="20" stroke-linecap="round"/>
+  <path d="M552 284 560 330 540 346" stroke="#2b5d8f" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="540" cy="346" r="9" fill="#8d5a3c"/>
+  <circle cx="462" cy="266" r="9" fill="#8d5a3c"/>
+  <path d="M452 254h22l4 18h-14z" fill="#16202b"/><rect x="466" y="258" width="8" height="6" rx="1" fill="#b3362b"/>
+  <rect x="512" y="246" width="20" height="22" rx="6" fill="#8d5a3c"/>
+  <circle cx="522" cy="226" r="27" fill="#8d5a3c"/>
+  <path d="M495 222q2-30 30-30 26 2 26 28-12-12-30-10-14 2-26 12z" fill="#16202b"/>
+  <path d="M494 222h-10" stroke="#16202b" stroke-width="5" stroke-linecap="round"/>
+</g>
+
+<!-- cartão do leitor -->
+<g>
+  <rect x="560" y="176" width="204" height="62" rx="10" fill="#fff" stroke="#dbe2e9"/>
+  <text x="576" y="200" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#10233a">Disjuntor 63 A · B-03</text>
+  <text x="576" y="222" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#546170">contado: <tspan font-weight="700" fill="#16202b">15 un</tspan></text>
+  <circle cx="740" cy="207" r="11" fill="#e1f2e9"/><path d="M734 207l4 4 8-8" stroke="#13734d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- palete contado -->
+<g>
+  <rect x="600" y="452" width="170" height="16" rx="2" fill="#a77b4f"/><rect x="610" y="468" width="20" height="6" fill="#8a633d"/><rect x="675" y="468" width="20" height="6" fill="#8a633d"/><rect x="740" y="468" width="20" height="6" fill="#8a633d"/>
+  <rect x="606" y="386" width="78" height="66" rx="3" fill="#d6b48a"/><rect x="688" y="386" width="76" height="66" rx="3" fill="#c9a476"/><rect x="630" y="326" width="100" height="60" rx="3" fill="#d6b48a"/>
+  <rect x="648" y="342" width="64" height="26" rx="13" fill="#e1f2e9"/><text x="680" y="360" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#13734d" text-anchor="middle">contado</text>
+</g>
+
+<!-- pessoa 2: tablet -->
+<g>
+  <ellipse cx="860" cy="474" rx="56" ry="9" fill="#cdd6e0"/>
+  <rect x="836" y="372" width="22" height="98" rx="10" fill="#3a3f47"/>
+  <rect x="864" y="372" width="22" height="98" rx="10" fill="#3a3f47"/>
+  <path d="M830 470h32v8h-36z" fill="#16202b"/><path d="M862 470h34v8h-36z" fill="#16202b"/>
+  <path d="M826 272q34-22 70 0l6 108h-82z" fill="#2b5d8f"/>
+  <path d="M832 276q28-16 58 0l4 104h-66z" fill="#13734d"/>
+  <path d="M832 332h62M830 354h66" stroke="#dff2e8" stroke-width="6"/>
+  <path d="M834 286 818 330 838 344" stroke="#2b5d8f" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M890 286 904 330 884 344" stroke="#2b5d8f" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="826" y="306" width="68" height="50" rx="6" fill="#16202b"/><rect x="831" y="311" width="58" height="40" rx="3" fill="#fff"/>
+  <g stroke-width="3" stroke-linecap="round"><path d="M837 320h22" stroke="#cdd6e0"/><path d="M837 330h22" stroke="#cdd6e0"/><path d="M837 340h22" stroke="#cdd6e0"/><path d="M872 320h10" stroke="#13734d"/><path d="M872 330h10" stroke="#b3362b"/><path d="M872 340h10" stroke="#13734d"/></g>
+  <circle cx="840" cy="346" r="9" fill="#e0b48f"/><circle cx="882" cy="346" r="9" fill="#e0b48f"/>
+  <rect x="852" y="248" width="20" height="22" rx="6" fill="#e0b48f"/>
+  <circle cx="862" cy="226" r="27" fill="#e0b48f"/>
+  <path d="M834 232q-4-40 30-40 32 2 28 40-6-20-28-22-20 0-30 22z" fill="#6b3f22"/>
+  <path d="M886 220q10 26 2 52" stroke="#6b3f22" stroke-width="10" stroke-linecap="round" fill="none"/>
+</g>
+
+<!-- cartão da recontagem -->
+<g>
+  <rect x="900" y="176" width="120" height="62" rx="10" fill="#fff" stroke="#dbe2e9"/>
+  <text x="914" y="200" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#10233a">Recontagem</text>
+  <text x="914" y="222" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#546170">pendentes: <tspan font-weight="700" fill="#13734d">0</tspan></text>
+</g>
+
+<!-- estante B -->
+<g>
+  <rect x="1030" y="96" width="14" height="376" rx="3" fill="#24476f"/>
+  <rect x="1176" y="96" width="14" height="376" rx="3" fill="#24476f"/>
+  <g fill="#c96a2b"><rect x="1030" y="270" width="160" height="10" rx="2"/><rect x="1030" y="452" width="160" height="10" rx="2"/></g>
+  <rect x="1050" y="300" width="60" height="152" rx="3" fill="#d6b48a"/><rect x="1114" y="330" width="58" height="122" rx="3" fill="#c9a476"/>
+  <rect x="1050" y="190" width="122" height="80" rx="3" fill="#c9a476"/>
+  <rect x="1064" y="214" width="46" height="24" rx="2" fill="#fff"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle"><rect x="1088" y="282" width="44" height="18" rx="3" fill="#fdf3d8"/><text x="1110" y="295" fill="#74510a">D-06</text></g>
+</g>
+</svg>

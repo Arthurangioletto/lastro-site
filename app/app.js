@@ -604,7 +604,7 @@
       (c.pendentes || c.aRecontar ? `<section class="bloco so-tela"><p class="vazio">Atenção: ainda há ${itens(c.pendentes)} sem contagem e ${c.aRecontar} a recontar. O relatório pode mudar.</p></section>` : "") + `
       <article class="relatorio">
         <h1>${raiox ? "Raio-X do Estoque" : "Inventário físico"}: ${esc(p.cliente)}</h1>
-        <p class="sub">Contagem em ${dataBR(p.data)} · responsável ${esc(p.responsavel || "—")} · Lastro, inventário e gestão de estoque</p>
+        <p class="sub">Contagem em ${dataBR(p.data)} · responsável ${esc(p.responsavel || "—")} · Lastro Inventário e Consultoria de Estoque</p>
         <p class="resumo">Foram contados <b>${c.contados}</b> itens${raiox ? ` de uma amostra de ${c.tamanhoLista}` : ""}. <b>${pct(c.acuracidade)}</b> bateram com o sistema. As faltas somam <b>${reais(c.vFaltas)}</b> em ${itens(c.faltas)} e as sobras <b>${reais(c.vSobras)}</b> em ${itens(c.sobras)}. O saldo líquido (${reais(liquido)}) não mede o prejuízo: falta e sobra são erros independentes de controle.</p>
         <h2>Números</h2>
         <dl class="numeros"><div><dt>Itens contados</dt><dd>${c.contados}</dd><small>${raiox ? `amostra de ${c.tamanhoLista}` : `de ${c.tamanhoLista}`}</small></div>

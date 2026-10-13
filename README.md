@@ -12,6 +12,9 @@ Dois produtos no mesmo repositório, ambos estáticos (HTML, CSS e JavaScript pu
 ```
 index.html            página principal
 privacidade.html      política de privacidade (LGPD)
+sistemas.html         página Sistemas (app de inventário, Bipou, módulos sob medida, painel com gráficos)
+assets/ilustra-inventario.svg  ilustração da equipe contando no armazém (seção "Em campo")
+assets/img/*.webp     telas reais dos sistemas com dados fictícios
 conteudos/*.html      guias para busca (inventário em SP, estoque não bate, acuracidade, inventário rotativo)
 tools/gerar_conteudos.py  gera os guias e o sitemap a partir de um modelo único
 assets/config.js      contato (WhatsApp, e-mail): troque aqui
@@ -120,3 +123,10 @@ O Pages já está ligado: **Settings → Pages → Deploy from a branch → main
 ## Licenças
 
 Fonte Instrument Sans (SIL Open Font License, `assets/instrument-sans-OFL.txt`).
+
+## Fotos reais
+
+A seção "Em campo" usa uma ilustração própria. Fotos reais da equipe trabalhando passam mais confiança do que foto de banco. Para trocar:
+1. Salve as fotos em `assets/img/` (de preferência .webp com até 1600 px de largura).
+2. Troque o `src` da imagem em `.campo-figura` no `index.html`.
+3. Use só fotos com autorização das pessoas que aparecem e sem logotipo ou dado de cliente ou de empregador.

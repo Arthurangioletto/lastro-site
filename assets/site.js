@@ -37,7 +37,7 @@
     menu.addEventListener("click", function (e) { if (e.target.closest("a")) fecharMenu(false); });
     doc.addEventListener("keydown", function (e) { if (e.key === "Escape") fecharMenu(true); });
     doc.addEventListener("click", function (e) { if (!e.target.closest("#topo")) fecharMenu(false); });
-    window.addEventListener("resize", function () { if (window.innerWidth > 1020) fecharMenu(false); });
+    window.addEventListener("resize", function () { if (window.innerWidth > 1120) fecharMenu(false); });
   }
 
   // ---------- link da seção atual no menu ----------
@@ -71,8 +71,27 @@
   }
 
   // ---------- formulário ----------
+  // ---------- revelar com movimento sutil (só se a pessoa não pediu menos movimento) ----------
+  var calmo = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revelar = $$(".revelar");
+  if (temIO && !calmo && revelar.length) {
+    var obsR = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("visto"); obsR.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    revelar.forEach(function (el) { el.classList.add("pronto"); obsR.observe(el); });
+  }
+
   var form = $("#form-orcamento");
   if (!form) return;
+
+  // interesse vindo de outra página (ex.: sistemas.html → index.html?interesse=...)
+  try {
+    var pedido = new URLSearchParams(location.search).get("interesse");
+    if (pedido) {
+      var selI = form.elements.interesse;
+      if ($$("option", selI).some(function (o) { return o.value === pedido || o.text === pedido; })) selI.value = pedido;
+    }
+  } catch (e) {}
   var revisao = $("#revisao"), revTexto = $("#revisao-texto"), abrir = $("#abrir-whats");
   var status = $("#revisao-status"), erroGeral = $("#erro-geral");
   var regras = {

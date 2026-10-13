@@ -12,6 +12,8 @@ Dois produtos no mesmo repositório, ambos estáticos (HTML, CSS e JavaScript pu
 ```
 index.html            página principal
 privacidade.html      política de privacidade (LGPD)
+conteudos/*.html      guias para busca (inventário em SP, estoque não bate, acuracidade, inventário rotativo)
+tools/gerar_conteudos.py  gera os guias e o sitemap a partir de um modelo único
 assets/config.js      contato (WhatsApp, e-mail): troque aqui
 assets/site.css       estilo (cores em :root)
 assets/site.js        menu, CTA fixo no celular, formulário com revisão
@@ -20,10 +22,16 @@ assets/og.png         imagem de compartilhamento (1200×630)
 assets/apple-touch-icon.png
 assets/instrument-sans.woff  fonte (OFL)
 sitemap.xml, robots.txt
-tests/site.test.js    testes automáticos (Playwright)
+tests/site.test.js, tests/conteudos.test.js   testes automáticos (Playwright)
 ```
 
-Seções da página, na ordem: primeira dobra com painel de conciliação → sinais → Raio-X do Estoque (oferta principal) → exemplo de relatório → serviços em 5 etapas → como funciona (6 passos) → quem faz e compromissos → dúvidas → formulário.
+Nome usado no site e nas buscas: **Lastro Inventário e Consultoria de Estoque** (curto: Lastro). CEO e fundador: Arthur Angioletto.
+
+Seções da página, na ordem: primeira dobra com painel de conciliação → sinais → Raio-X do Estoque (oferta principal) → exemplo de relatório → serviços em 5 etapas → como funciona (6 passos) → quem está por trás (competências, equipe, sistema e método próprios, compromissos) → guias → dúvidas → formulário.
+
+## Guias (conteúdo para busca)
+
+Para editar ou criar um guia, mude a lista `ARTIGOS` em `tools/gerar_conteudos.py` e rode `python3 tools/gerar_conteudos.py`. O script reescreve `conteudos/*.html` e o `sitemap.xml`. Depois, atualize os cartões da seção `#conteudos` no `index.html`.
 
 ## Contato
 
@@ -58,6 +66,7 @@ Com o site rodando em `localhost:8000` e o Playwright instalado (`npm i -D playw
 
 ```bash
 node tests/site.test.js
+node tests/conteudos.test.js
 ```
 
 O teste verifica:
@@ -78,7 +87,7 @@ O Pages já está ligado: **Settings → Pages → Deploy from a branch → main
 
 ### Quando tiver o domínio próprio (lastroestoque.com.br)
 
-1. Registre no registro.br.
+1. Registre no registro.br. Sugestão: `lastroinventario.com.br` (marca + palavra que o cliente busca), que estava livre em 13/10/2026.
 2. Em **Settings → Pages → Custom domain**, digite o domínio.
 3. No registro.br, aponte o DNS:
    - registros A para 185.199.108.153, 185.199.109.153, 185.199.110.153 e 185.199.111.153;
@@ -87,7 +96,8 @@ O Pages já está ligado: **Settings → Pages → Deploy from a branch → main
 5. Troque `https://arthurangioletto.github.io/lastro-site/` por `https://lastroestoque.com.br/` nestes lugares:
    - `index.html`: canonical, og:url, og:image e JSON-LD;
    - `privacidade.html`: canonical;
-   - `sitemap.xml` e `robots.txt`.
+   - `BASE` em `tools/gerar_conteudos.py` (rode o script de novo para atualizar guias e sitemap);
+   - `robots.txt`.
 6. Com o e-mail do domínio criado, preencha `email` no `config.js`.
 
 ## Lastro Contagem: como funciona

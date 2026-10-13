@@ -1,0 +1,9 @@
+{
+  "name": "Lastro Contagem",
+  "short_name": "Contagem",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f6",
+  "theme_color": "#0e3b39",
+  "icons": [{ "src": "../assets/logo.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

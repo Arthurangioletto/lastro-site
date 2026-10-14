@@ -206,7 +206,7 @@ relatorio = f"""<!-- demo:relatorio -->
       <div class="rel-grafico">
         <div class="rel-grafico-cabeca">
           <p class="rel-subtitulo" id="graf-tit">As 8 maiores divergências, em reais</p>
-          <p class="destaque-dado">As 8 maiores somam <strong>{brl(TOP)}</strong> ({TOP_PCT}%) dos {brl(ABS)} em divergências, contando faltas e sobras pelo valor absoluto. É por elas que a correção começa.</p>
+          <p class="destaque-dado">As 8 maiores somam <strong>{brl(TOP)}</strong>, ou {TOP_PCT}% do valor absoluto das divergências ({brl(ABS)}, faltas e sobras somadas sem sinal). É por elas que a correção começa.</p>
         </div>
         <ul class="barras" aria-labelledby="graf-tit">
 {chr(10).join(barras)}

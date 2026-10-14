@@ -186,7 +186,7 @@ const num = s => parseFloat(String(s).replace(/[^\d,+−-]/g, '').replace('−',
     const barrasOk = d.barras.length === d.linhas.length && d.barras.every((bb, i) => { const l = d.linhas[i]; const imp = Math.round((l.fis - l.sis) * l.custo * 100) / 100; return bb.nome === l.nome && bb.valor === brl(imp) && Math.abs(bb.w - Math.abs(imp) / max * 100) < .02 && bb.tipo === (imp < 0 ? 'falta' : 'sobra'); });
     ok(barrasOk, 'gráfico = tabela (nome, valor, cor e largura)');
     const top8 = Math.round((F + S) * 100) / 100, totAbs = Math.round((TF + TS) * 100) / 100;
-    ok(d.destaque.includes('R$ ' + top8.toLocaleString('pt-BR', { minimumFractionDigits: 2 })) && d.destaque.includes('R$ ' + totAbs.toLocaleString('pt-BR', { minimumFractionDigits: 2 })) && d.destaque.includes('(' + Math.round(top8 / totAbs * 100) + '%)'), `destaque: ${top8} de ${totAbs}`);
+    ok(d.destaque.includes('R$ ' + top8.toLocaleString('pt-BR', { minimumFractionDigits: 2 })) && d.destaque.includes('R$ ' + totAbs.toLocaleString('pt-BR', { minimumFractionDigits: 2 })) && d.destaque.includes(' ' + Math.round(top8 / totAbs * 100) + '% '), `destaque: ${top8} de ${totAbs}`);
     ok(d.liquido.includes(brl(Math.round((TS - TF) * 100) / 100).replace('+', '')), 'diferença líquida = sobras − faltas');
     const heroOk = d.heroLinhas.every(h => { const l = d.linhas.find(x => x.nome.startsWith(h[0].split(' (')[0]) || x.nome === h[0]); if (!l) return h[3] === 'bate' && h[1] === h[2]; return h[1] === String(l.sis) && h[2] === String(l.fis) && h[3].startsWith(l.cel[2]) && h[3].endsWith(l.cel[4]); });
     ok(heroOk, 'linhas do painel = linhas do relatório');

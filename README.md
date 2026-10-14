@@ -13,9 +13,11 @@ Dois produtos no mesmo repositório, ambos estáticos (HTML, CSS e JavaScript pu
 index.html            página principal
 privacidade.html      política de privacidade (LGPD)
 sistemas.html         página Sistemas (app de inventário, Bipou, módulos sob medida, painel com gráficos)
+dashboards.html       página Dashboards (Power BI e Excel: estoque, armazéns, mapa do processo)
+assets/img/dash-*.webp  telas de exemplo de dashboards (dados fictícios)
 assets/ilustra-inventario.svg  ilustração da equipe contando no armazém (seção "Em campo")
 assets/img/*.webp     telas reais dos sistemas com dados fictícios
-conteudos/*.html      guias para busca (inventário em SP, estoque não bate, acuracidade, inventário rotativo)
+conteudos/*.html      guias para busca (inventário em SP, estoque não bate, acuracidade, inventário rotativo, indicadores de dashboard)
 tools/demo.json          FONTE ÚNICA dos números do exemplo fictício (relatório, painel, guia)
 tools/gerar_demo.py      calcula totais, ranking e % e reescreve o painel e o relatório no index.html
 tools/demo-resumo.json   totais calculados (gerado; usado pelo gerar_conteudos.py)

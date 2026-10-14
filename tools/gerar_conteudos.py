@@ -215,6 +215,56 @@ ARTIGOS = [
 <p>A Lastro classifica os itens, monta o calendário, treina a equipe na contagem cega e acompanha os indicadores no <a href="../#servicos">acompanhamento mensal</a>.</p>
 """,
     },
+    {
+        "slug": "dashboard-de-estoque-indicadores",
+        "titulo": "Dashboard de estoque: 10 indicadores que valem acompanhar",
+        "titulo_seo": "Dashboard de Estoque: 10 Indicadores para Acompanhar (com Fórmulas) | Lastro",
+        "descricao": "Os indicadores de estoque e armazém que mais ajudam a decidir, com fórmula, exemplo e o gráfico certo para cada um num dashboard em Power BI ou Excel.",
+        "resumo": "Acuracidade, giro, cobertura, ruptura, dinheiro parado e outros, com fórmula, exemplo e o gráfico certo para cada um.",
+        "corpo": """
+<p class="abre">Um dashboard de estoque serve para responder rápido a poucas perguntas: quanto vale o estoque, quanto dá para confiar no saldo, o que está faltando e o que está parado. Mais gráficos não ajudam se não respondem a essas perguntas. Estes são os indicadores que mais costumam fazer diferença.</p>
+
+<h2>Indicadores do estoque</h2>
+<h3>1. Acuracidade do estoque</h3>
+<p class="formula">Acuracidade (%) = itens que batem ÷ itens contados × 100</p>
+<p>Mostra quanto o saldo do sistema é confiável. Funciona melhor como linha mês a mês, alimentada pelo <a href="inventario-rotativo.html">inventário rotativo</a>. Veja <a href="acuracidade-de-estoque.html">como calcular a acuracidade</a> em itens e em valor.</p>
+<h3>2. Valor em estoque</h3>
+<p>Soma de quantidade × custo unitário. No topo do painel, como número grande com a variação do mês.</p>
+<h3>3. Giro do estoque</h3>
+<p class="formula">Giro = custo das saídas no período ÷ estoque médio no período</p>
+<p><b>Exemplo:</b> saídas de R$ 600 mil em 12 meses e estoque médio de R$ 150 mil dão giro de 4 vezes ao ano.</p>
+<h3>4. Cobertura em dias</h3>
+<p class="formula">Cobertura (dias) = estoque atual ÷ consumo médio por dia</p>
+<p>Quantos dias o estoque aguenta sem nova compra. Útil por item ou por linha de produto, com uma faixa de referência definida pela empresa.</p>
+<h3>5. Ruptura</h3>
+<p>Itens com saldo zero que têm venda ou consumo. Uma tabela com os itens que mais pesam ajuda mais que um número solto.</p>
+<h3>6. Dinheiro parado</h3>
+<p>Valor dos itens sem saída há 60, 90 ou 180 dias. Mostra onde o caixa está preso.</p>
+<h3>7. Curva ABC</h3>
+<p>Itens ordenados pelo valor (consumo × custo): poucos itens concentram a maior parte do valor. Um gráfico de barras por classe mostra isso numa olhada e orienta onde contar e controlar mais.</p>
+
+<h2>Indicadores do armazém</h2>
+<h3>8. Ocupação dos endereços</h3>
+<p class="formula">Ocupação (%) = posições ocupadas ÷ posições disponíveis × 100</p>
+<p>Ocupação muito alta costuma deixar a armazenagem lenta e aumentar o erro de endereço. Barras por armazém ou por rua, com um limite marcado.</p>
+<h3>9. Pedidos no prazo e completos</h3>
+<p class="formula">No prazo e completos (%) = pedidos entregues no prazo e sem falta ÷ pedidos expedidos × 100</p>
+<p>Junta prazo e qualidade num número só. Acompanhe por semana.</p>
+<h3>10. Tempo por etapa do processo</h3>
+<p>Tempo médio de recebimento, armazenagem, separação, conferência e expedição. Colocado sobre o desenho do fluxo, mostra onde está o gargalo e quais problemas se ligam (por exemplo, item fora do endereço atrasando a separação).</p>
+
+<h2>Como montar o painel sem se perder</h2>
+<ul>
+  <li><b>Comece pelas perguntas</b>, não pelos gráficos: o que precisa ser decidido toda semana?</li>
+  <li><b>Arrume a base primeiro:</b> códigos duplicados e unidades diferentes estragam qualquer indicador.</li>
+  <li><b>Um gráfico por pergunta:</b> linha para evolução no tempo, barras para comparar, tabela para a lista de ação.</li>
+  <li><b>Defina a rotina:</b> quem atualiza, quando e quem olha. Um dashboard que ninguém abre não muda nada.</li>
+</ul>
+
+<h2>Dashboards com a Lastro</h2>
+<p>A Lastro monta dashboards em Power BI ou Excel com os dados que a empresa já tem: indicadores de estoque, armazéns e o mapa do processo. Veja <a href="../dashboards.html">exemplos de dashboards</a>.</p>
+""",
+    },
 ]
 
 
@@ -278,7 +328,7 @@ def pagina(a, outros):
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
-<header class="topo topo-simples" id="topo"><div class="faixa topo-faixa"><a class="marca" href="../" aria-label="Lastro Inventário e Consultoria de Estoque, página inicial"><img src="../assets/logo.svg" alt="" width="32" height="32"><span class="marca-nome">Lastro<small>Inventário e Consultoria de Estoque</small></span></a><a class="btn btn-principal btn-topo" href="../#contato">Pedir avaliação</a></div></header>
+<header class="topo topo-simples" id="topo"><div class="faixa topo-faixa"><a class="marca" href="../" aria-label="Lastro Inventário e Consultoria de Estoque, página inicial"><img src="../assets/logo.svg" alt="" width="32" height="32"><span class="marca-nome">Lastro<small>Inventário e Consultoria de Estoque</small></span></a><a class="btn btn-principal btn-topo" href="../#contato">Solicitar avaliação</a></div></header>
 <main id="conteudo" class="faixa artigo-faixa">
   <nav class="trilha-nav" aria-label="Você está em"><ol><li><a href="../">Início</a></li><li><a href="../#conteudos">Conteúdos</a></li><li aria-current="page">{e(a['titulo'])}</li></ol></nav>
   <article class="artigo">
@@ -300,7 +350,7 @@ def pagina(a, outros):
     </ul>
   </nav>
 </main>
-<footer class="rodape"><div class="faixa rodape-grade"><div><a class="marca marca-rodape" href="../"><img src="../assets/logo.svg" alt="" width="28" height="28"><span class="marca-nome">Lastro<small>Inventário e Consultoria de Estoque</small></span></a><p>Inventário físico, Raio-X do Estoque e consultoria de estoque em São Paulo, SP</p></div><nav aria-label="Rodapé"><ul><li><a href="../">Início</a></li><li><a href="../sistemas.html">Sistemas</a></li><li><a href="../#contato">Pedir avaliação</a></li><li><a href="../privacidade.html">Política de privacidade</a></li></ul></nav></div></footer>
+<footer class="rodape"><div class="faixa rodape-grade"><div><a class="marca marca-rodape" href="../"><img src="../assets/logo.svg" alt="" width="28" height="28"><span class="marca-nome">Lastro<small>Inventário e Consultoria de Estoque</small></span></a><p>Inventário físico, Raio-X do Estoque e consultoria de estoque em São Paulo, SP</p></div><nav aria-label="Rodapé"><ul><li><a href="../">Início</a></li><li><a href="../sistemas.html">Sistemas</a></li><li><a href="../dashboards.html">Dashboards</a></li><li><a href="../#contato">Solicitar avaliação</a></li><li><a href="../privacidade.html">Política de privacidade</a></li></ul></nav></div></footer>
 </body>
 </html>
 """
@@ -313,7 +363,7 @@ def main():
         with open(os.path.join(RAIZ, "conteudos", a["slug"] + ".html"), "w", encoding="utf-8") as f:
             f.write(pagina(a, outros))
     # sitemap
-    urls = [BASE, BASE + "sistemas.html", BASE + "privacidade.html"] + [f"{BASE}conteudos/{a['slug']}.html" for a in ARTIGOS]
+    urls = [BASE, BASE + "sistemas.html", BASE + "dashboards.html", BASE + "privacidade.html"] + [f"{BASE}conteudos/{a['slug']}.html" for a in ARTIGOS]
     linhas = "\n".join(f"  <url><loc>{u}</loc><lastmod>{DATA}</lastmod></url>" for u in urls)
     with open(os.path.join(RAIZ, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{linhas}\n</urlset>\n')

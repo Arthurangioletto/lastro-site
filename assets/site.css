@@ -737,3 +737,9 @@ textarea.entrada { min-height: 120px; resize: vertical; line-height: 1.5; }
 .sis-cta h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 2.8rem); font-stretch: 84%; }
 .sis-cta .acoes { margin-top: 1.5rem; }
 .secao-campo { border-bottom: 1px solid var(--linha); }
+
+/* Dashboards (home): imagem à esquerda, fundo branco para separar da vitrine de sistemas */
+.secao-dash { background: var(--branco); border-top: 0; }
+.secao-dash .vitrine-grade { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+@media (max-width: 920px) { .secao-dash .vitrine-grade { grid-template-columns: minmax(0, 1fr); } .secao-dash .mockups { order: 2; } }
+.guias li:last-child:nth-child(odd) { grid-column: 1 / -1; }

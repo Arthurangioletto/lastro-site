@@ -1,7 +1,7 @@
 // Testa as páginas de conteúdo: carregam, sem rolagem lateral, títulos em ordem, links internos e console limpo.
 const { chromium } = require('playwright');
 const U = process.env.SITE_URL || 'http://localhost:8000/';
-const paginas = ['conteudos/inventario-de-estoque-sao-paulo.html', 'conteudos/estoque-nao-bate-com-o-sistema.html', 'conteudos/acuracidade-de-estoque.html', 'conteudos/inventario-rotativo.html', 'sistemas.html'];
+const paginas = ['conteudos/inventario-de-estoque-sao-paulo.html', 'conteudos/estoque-nao-bate-com-o-sistema.html', 'conteudos/acuracidade-de-estoque.html', 'conteudos/inventario-rotativo.html', 'conteudos/dashboard-de-estoque-indicadores.html', 'sistemas.html', 'dashboards.html'];
 let falhas = 0;
 const ok = (c, m) => { console.log((c ? 'OK   ' : 'FALHA') + ' ' + m); if (!c) falhas++; };
 (async () => {

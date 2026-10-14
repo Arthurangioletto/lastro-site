@@ -3,6 +3,6 @@
 window.LASTRO = {
   nome: "Lastro",
   whatsapp: "5511950600817",
-  email: "", // ex.: "contato@lastroinventario.com.br" depois que o domínio e o e-mail existirem
+  email: "lastroinventario@gmail.com",
   regiao: "São Paulo capital",
 };

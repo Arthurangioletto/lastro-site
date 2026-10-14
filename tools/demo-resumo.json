@@ -1,0 +1,20 @@
+{
+ "amostra": 150,
+ "cadastrados": 1380,
+ "batem": 118,
+ "itens_falta": 21,
+ "itens_sobra": 11,
+ "faltas": 4266.6,
+ "sobras": 1905.6,
+ "liquida": -2361.0,
+ "absoluto": 6172.2,
+ "maiores8": 4495.5,
+ "maiores8_pct": 73,
+ "outras_faltas": 1120.1,
+ "outras_sobras": 556.6,
+ "outras_n_faltas": 16,
+ "outras_n_sobras": 8,
+ "maior_outra": 96.0,
+ "menor_principal": 112.2,
+ "pct_batem": 78.7
+}

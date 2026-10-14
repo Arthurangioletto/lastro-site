@@ -1,4 +1,6 @@
 # Vale na raiz do domínio próprio.
 User-agent: *
 Allow: /
+Disallow: /tools/
+Disallow: /tests/
 Sitemap: https://lastroinventario.com.br/sitemap.xml

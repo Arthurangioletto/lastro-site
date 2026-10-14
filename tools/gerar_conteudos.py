@@ -11,6 +11,27 @@ DATA_BR = "13 de outubro de 2026"
 AUTOR = "Arthur Angioletto"
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Números do exemplo vêm da mesma fonte do relatório do site (tools/gerar_demo.py → tools/demo-resumo.json)
+with open(os.path.join(RAIZ, "tools", "demo-resumo.json"), encoding="utf-8") as _f:
+    DEMO = json.load(_f)
+
+
+def _brl(v, sinal=False):
+    s = f"{abs(v):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return (("+" if v > 0 else "\u2212") if sinal else "") + "R$ " + s
+
+
+def demo_no_texto(t):
+    erro = DEMO["absoluto"] / 200000 * 100
+    trocas = {
+        "@@FALTAS@@": _brl(DEMO["faltas"]), "@@SOBRAS@@": _brl(DEMO["sobras"]),
+        "@@ABSN@@": _brl(DEMO["absoluto"])[3:], "@@LIQ@@": _brl(DEMO["liquida"], True),
+        "@@ERRO@@": f"{erro:.1f}".replace(".", ",") + "%",
+    }
+    for k, v in trocas.items():
+        t = t.replace(k, v)
+    return t
+
 ARTIGOS = [
     {
         "slug": "inventario-de-estoque-sao-paulo",
@@ -38,7 +59,7 @@ ARTIGOS = [
   <li><b>Contagem cega.</b> Quem conta não vê o saldo do sistema. Assim a pessoa conta o que está na prateleira, não o que espera encontrar.</li>
   <li><b>Recontagem das divergências.</b> Toda diferença é contada de novo, de preferência por outra pessoa, antes de virar ajuste.</li>
   <li><b>Conciliação.</b> Sistema × físico item a item, com o valor de cada diferença. Faltas e sobras somadas separadamente.</li>
-  <li><b>Relatório e causas.</b> O ajuste corrige o saldo; entender a causa evita que a diferença volte no mês seguinte.</li>
+  <li><b>Relatório e causas.</b> O ajuste corrige o saldo; entender a causa reduz a chance de a diferença voltar no mês seguinte.</li>
 </ol>
 
 <h2>O que define o prazo</h2>
@@ -123,10 +144,10 @@ ARTIGOS = [
 <h2>Erro em valor</h2>
 <p>A acuracidade por itens trata igual um parafuso e um motor. Para ver o peso financeiro, some o valor das divergências <b>em módulo</b>, ou seja, faltas e sobras como valores positivos:</p>
 <p class="formula">Erro em valor (%) = (faltas + sobras, em R$) ÷ valor contado × 100</p>
-<p><b>Exemplo:</b> uma amostra que vale R$ 200.000,00 teve R$ 6.912,40 em faltas e R$ 2.180,00 em sobras. O erro em valor é 9.092,40 ÷ 200.000,00 × 100 = <b>4,5%</b>.</p>
+<p><b>Exemplo:</b> uma amostra que vale R$ 200.000,00 teve @@FALTAS@@ em faltas e @@SOBRAS@@ em sobras. O erro em valor é @@ABSN@@ ÷ 200.000,00 × 100 = <b>@@ERRO@@</b>.</p>
 
 <h2>Por que o saldo líquido engana</h2>
-<p>No mesmo exemplo, o saldo líquido seria −R$ 4.732,40 (sobras menos faltas). Parece menor, mas esconde que existem dois problemas: produtos que sumiram e produtos lançados errado. Uma sobra não compensa uma falta. Por isso o relatório deve mostrar as duas separadas.</p>
+<p>No mesmo exemplo, o saldo líquido seria @@LIQ@@ (sobras menos faltas). Parece menor, mas esconde que existem dois problemas: produtos que sumiram e produtos lançados errado. Uma sobra não compensa uma falta. Por isso o relatório deve mostrar as duas separadas.</p>
 
 <h2>Qual meta usar</h2>
 <p>Não existe um número que sirva para toda empresa. Uma forma prática:</p>
@@ -176,7 +197,7 @@ ARTIGOS = [
 <p>Quem conta não deve ver o saldo do sistema. Toda diferença é recontada antes de qualquer ajuste, de preferência por outra pessoa.</p>
 
 <h2>4. Investigue antes de ajustar</h2>
-<p>Para cada divergência, anote a causa provável: saída sem baixa, unidade de medida, troca de código, recebimento. O ajuste corrige o saldo; a causa anotada é o que evita a próxima diferença. Veja as <a href="estoque-nao-bate-com-o-sistema.html">8 causas mais comuns</a>.</p>
+<p>Para cada divergência, anote a causa provável: saída sem baixa, unidade de medida, troca de código, recebimento. O ajuste corrige o saldo; a causa anotada é o que ajuda a evitar a próxima diferença. Veja as <a href="estoque-nao-bate-com-o-sistema.html">8 causas mais comuns</a>.</p>
 
 <h2>5. Registre o indicador</h2>
 <p>Ao fim de cada mês, calcule a <a href="acuracidade-de-estoque.html">acuracidade</a> dos itens contados e o valor das faltas e sobras, separados. O gráfico mês a mês mostra se o controle está melhorando.</p>
@@ -265,7 +286,7 @@ def pagina(a, outros):
       <h1>{e(a['titulo'])}</h1>
       <p class="artigo-meta">Por {AUTOR}, CEO e fundador da Lastro · <time datetime="{DATA}">{DATA_BR}</time></p>
     </header>
-{a['corpo'].strip()}
+{demo_no_texto(a['corpo']).strip()}
     <aside class="artigo-cta" aria-labelledby="cta-{a['slug']}">
       <h2 id="cta-{a['slug']}">Quer saber quanto o seu estoque erra?</h2>
       <p>A Lastro mede a diferença entre o sistema e a prateleira e mostra quanto ela vale em reais. Atendimento em São Paulo capital.</p>

@@ -1,0 +1,305 @@
+{
+ "empresa": "Distribuidora de materiais elétricos e hidráulicos",
+ "cadastrados": 1380,
+ "maior_valor": 60,
+ "sorteados": 90,
+ "principais": [
+  {
+   "nome": "Disjuntor tripolar 63 A",
+   "sis": 24,
+   "fis": 15,
+   "custo": 142.0,
+   "cod": "EL-0631",
+   "end": "B-03"
+  },
+  {
+   "nome": "Quadro de distribuição 24 disjuntores",
+   "sis": 10,
+   "fis": 6,
+   "custo": 259.0,
+   "cod": "EL-1124",
+   "end": "B-07"
+  },
+  {
+   "nome": "Cabo PP 3×2,5 mm (metro)",
+   "sis": 500,
+   "fis": 680,
+   "custo": 3.9,
+   "cod": "EL-2250",
+   "end": "A-01"
+  },
+  {
+   "nome": "Luminária LED 18 W",
+   "sis": 36,
+   "fis": 29,
+   "custo": 64.0,
+   "cod": "IL-0180",
+   "end": "C-02"
+  },
+  {
+   "nome": "Tomada 2P+T 20 A",
+   "sis": 210,
+   "fis": 250,
+   "custo": 9.8,
+   "cod": "EL-3020",
+   "end": "B-11"
+  },
+  {
+   "nome": "Disjuntor bipolar 32 A",
+   "sis": 48,
+   "fis": 41,
+   "custo": 38.9,
+   "cod": "EL-0632",
+   "end": "B-03"
+  },
+  {
+   "nome": "Registro de gaveta 3/4\"",
+   "sis": 30,
+   "fis": 36,
+   "custo": 42.5,
+   "cod": "HI-0340",
+   "end": "D-04"
+  },
+  {
+   "nome": "Fita isolante 20 m",
+   "sis": 140,
+   "fis": 118,
+   "custo": 5.1,
+   "cod": "EL-0020",
+   "end": "Balcão"
+  }
+ ],
+ "outras": [
+  {
+   "nome": "Tomada 2P+T 10 A",
+   "sis": 180,
+   "fis": 172,
+   "custo": 8.4,
+   "cod": "EL-3010",
+   "end": "B-11"
+  },
+  {
+   "nome": "Interruptor paralelo",
+   "sis": 95,
+   "fis": 88,
+   "custo": 10.9,
+   "cod": "EL-0411",
+   "end": "B-09"
+  },
+  {
+   "nome": "Plugue macho 20 A",
+   "sis": 120,
+   "fis": 110,
+   "custo": 6.2,
+   "cod": "EL-0103",
+   "end": "B-12"
+  },
+  {
+   "nome": "Conector Wago 3 vias (pct 10)",
+   "sis": 75,
+   "fis": 71,
+   "custo": 19.0,
+   "cod": "EL-0700",
+   "end": "B-15"
+  },
+  {
+   "nome": "Lâmpada LED 12 W",
+   "sis": 310,
+   "fis": 302,
+   "custo": 8.9,
+   "cod": "IL-0091",
+   "end": "C-01"
+  },
+  {
+   "nome": "Disjuntor monopolar 20 A",
+   "sis": 64,
+   "fis": 59,
+   "custo": 17.5,
+   "cod": "EL-0640",
+   "end": "B-02"
+  },
+  {
+   "nome": "Caixa 4×2 de embutir",
+   "sis": 260,
+   "fis": 231,
+   "custo": 1.9,
+   "cod": "EL-0520",
+   "end": "B-10"
+  },
+  {
+   "nome": "Abraçadeira nylon 200 mm (pct 100)",
+   "sis": 47,
+   "fis": 43,
+   "custo": 18.5,
+   "cod": "EL-0810",
+   "end": "B-14"
+  },
+  {
+   "nome": "Fita veda rosca 18 mm",
+   "sis": 160,
+   "fis": 139,
+   "custo": 3.2,
+   "cod": "HI-0400",
+   "end": "Balcão"
+  },
+  {
+   "nome": "Engate flexível 40 cm",
+   "sis": 70,
+   "fis": 62,
+   "custo": 9.8,
+   "cod": "HI-0620",
+   "end": "D-05"
+  },
+  {
+   "nome": "Sifão sanfonado",
+   "sis": 44,
+   "fis": 38,
+   "custo": 12.5,
+   "cod": "HI-0610",
+   "end": "D-05"
+  },
+  {
+   "nome": "Luva PVC 25 mm",
+   "sis": 240,
+   "fis": 201,
+   "custo": 0.9,
+   "cod": "HI-0200",
+   "end": "D-02"
+  },
+  {
+   "nome": "Joelho PVC 32 mm",
+   "sis": 180,
+   "fis": 161,
+   "custo": 1.9,
+   "cod": "HI-0121",
+   "end": "D-01"
+  },
+  {
+   "nome": "Plafon LED 24 W",
+   "sis": 26,
+   "fis": 24,
+   "custo": 42.0,
+   "cod": "IL-0310",
+   "end": "C-03"
+  },
+  {
+   "nome": "Extensão 3 tomadas 5 m",
+   "sis": 40,
+   "fis": 37,
+   "custo": 32.0,
+   "cod": "EL-0210",
+   "end": "B-14"
+  },
+  {
+   "nome": "Refletor LED 50 W",
+   "sis": 18,
+   "fis": 17,
+   "custo": 79.0,
+   "cod": "IL-0300",
+   "end": "C-04"
+  },
+  {
+   "nome": "Canaleta 20×10 mm (barra)",
+   "sis": 120,
+   "fis": 131,
+   "custo": 6.8,
+   "cod": "EL-0305",
+   "end": "A-05"
+  },
+  {
+   "nome": "Placa 4×2 cega",
+   "sis": 210,
+   "fis": 236,
+   "custo": 2.3,
+   "cod": "EL-0521",
+   "end": "B-10"
+  },
+  {
+   "nome": "Disjuntor monopolar 16 A",
+   "sis": 58,
+   "fis": 62,
+   "custo": 17.5,
+   "cod": "EL-0641",
+   "end": "B-02"
+  },
+  {
+   "nome": "Tê PVC 25 mm",
+   "sis": 200,
+   "fis": 244,
+   "custo": 1.4,
+   "cod": "HI-0210",
+   "end": "D-02"
+  },
+  {
+   "nome": "Lâmpada LED 9 W",
+   "sis": 400,
+   "fis": 412,
+   "custo": 6.5,
+   "cod": "IL-0090",
+   "end": "C-01"
+  },
+  {
+   "nome": "Plugue fêmea 10 A",
+   "sis": 85,
+   "fis": 97,
+   "custo": 4.6,
+   "cod": "EL-0102",
+   "end": "B-12"
+  },
+  {
+   "nome": "Eletroduto corrugado 3/4 (rolo)",
+   "sis": 30,
+   "fis": 32,
+   "custo": 48.0,
+   "cod": "EL-0306",
+   "end": "A-06"
+  },
+  {
+   "nome": "Joelho PVC 25 mm",
+   "sis": 320,
+   "fis": 371,
+   "custo": 1.2,
+   "cod": "HI-0120",
+   "end": "D-01"
+  }
+ ],
+ "painel_itens": [
+  "Disjuntor tripolar 63 A",
+  "Cabo flexível 2,5 mm, rolo 100 m",
+  "Cabo PP 3×2,5 mm (metro)",
+  "Fita isolante 20 m"
+ ],
+ "bate_exemplo": {
+  "nome": "Cabo flexível 2,5 mm, rolo 100 m",
+  "sis": 12,
+  "fis": 12,
+  "custo": 389.0,
+  "cod": "EL-2251",
+  "end": "A-02"
+ },
+ "causas": [
+  [
+   "Unidade de medida.",
+   "O cabo PP entra em rolo de 100 m e sai em metro; a sobra de 180 m indica conversão errada no recebimento."
+  ],
+  [
+   "Saída sem baixa.",
+   "Disjuntores e fita isolante saem pelo balcão sem pedido lançado no sistema."
+  ],
+  [
+   "Troca de código.",
+   "A tomada 20 A sobra enquanto a de 10 A falta: vendas lançadas no código do item parecido."
+  ],
+  [
+   "Recebimento sem conferência.",
+   "Quadros de distribuição entram pela nota, sem contagem física na chegada."
+  ]
+ ],
+ "acoes": [
+  "Corrigir o fator de conversão dos cabos no cadastro e recontá-los antes de qualquer ajuste.",
+  "Nenhuma saída de balcão sem pedido; conferência semanal dos itens pequenos de maior giro.",
+  "Separar e etiquetar as tomadas 10 A e 20 A em endereços diferentes.",
+  "Conferência cega no recebimento dos itens de maior valor.",
+  "Contagem rotativa mensal dos 60 itens de maior valor para medir a evolução."
+ ]
+}

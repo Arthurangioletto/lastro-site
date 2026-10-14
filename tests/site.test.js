@@ -190,6 +190,24 @@ const num = s => parseFloat(String(s).replace(/[^\d,+−-]/g, '').replace('−',
     ok(d.liquido.includes(brl(Math.round((TS - TF) * 100) / 100).replace('+', '')), 'diferença líquida = sobras − faltas');
     const heroOk = d.heroLinhas.every(h => { const l = d.linhas.find(x => x.nome.startsWith(h[0].split(' (')[0]) || x.nome === h[0]); if (!l) return h[3] === 'bate' && h[1] === h[2]; return h[1] === String(l.sis) && h[2] === String(l.fis) && h[3].startsWith(l.cel[2]) && h[3].endsWith(l.cel[4]); });
     ok(heroOk, 'linhas do painel = linhas do relatório');
+    // fonte única: tools/demo.json (ranking, outras divergências, absoluto e líquido)
+    {
+      const D = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, '..', 'tools', 'demo.json'), 'utf8'));
+      const imp = i => Math.round((i.fis - i.sis) * i.custo * 100) / 100;
+      const menorTop = Math.min(...D.principais.map(i => Math.abs(imp(i))));
+      const maiorOutra = Math.max(...D.outras.map(i => Math.abs(imp(i))));
+      ok(maiorOutra < menorTop, `ranking: maior das "outras" (${maiorOutra}) < 8ª maior (${menorTop})`);
+      const oF = Math.round(D.outras.filter(i => imp(i) < 0).reduce((a, i) => a - imp(i), 0) * 100) / 100;
+      const oS = Math.round(D.outras.filter(i => imp(i) > 0).reduce((a, i) => a + imp(i), 0) * 100) / 100;
+      ok(Math.abs(oF - outrosF) < .005 && Math.abs(oS - outrosS) < .005 && D.outras.length === outrasN, `linha "outras" = demo.json (${oF} / ${oS})`);
+      ok(JSON.stringify(D.principais.map(i => i.nome).sort()) === JSON.stringify(d.linhas.map(l => l.nome).sort()), 'tabela = 8 principais do demo.json');
+      const extra = await p.evaluate(() => ({ abs: document.querySelector('.linha-abs td').textContent.trim(), somas: [...document.querySelectorAll('.rel-somas dd')].map(x => x.textContent.trim()), outrosTh: document.querySelector('.linha-outros th').textContent }));
+      const fmt = v => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      ok(extra.abs === fmt(totAbs) && extra.somas[2] === fmt(totAbs), `valor absoluto = faltas + sobras (${totAbs})`);
+      ok(extra.somas[0] === fmt(TF) && extra.somas[1] === fmt(TS) && extra.somas[3] === brl(Math.round((TS - TF) * 100) / 100), 'quadro de somas: faltas, sobras e líquida separadas');
+      ok(extra.outrosTh.includes(fmt(menorTop)), 'linha "outras" informa o teto de cada divergência');
+      ok(Math.abs(top8 + outrosF + outrosS - totAbs) < .005, 'reconciliação: 8 maiores + outras = valor absoluto');
+    }
     await p.context().close();
   }
 

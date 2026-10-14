@@ -291,6 +291,14 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.1; font-weight: 700; letter-spacing: 
 .legenda-pequena { font-size: .8rem; color: var(--cinza); }
 .liquido { margin-top: .9rem; font-size: .88rem; color: var(--cinza); max-width: 80ch; }
 .liquido strong { color: var(--tinta); }
+.rel-somas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; margin-top: 1.1rem; }
+.rel-somas > div { border: 1px solid var(--linha); border-radius: 8px; padding: .65rem .8rem; background: #fbfcfd; min-width: 0; }
+.rel-somas dt { font-size: .78rem; font-weight: 600; color: var(--cinza); line-height: 1.25; }
+.rel-somas dd { margin-top: .2rem; font-size: 1.12rem; font-weight: 700; color: var(--marinho); white-space: nowrap; }
+.rel-somas .s-falta dd { color: var(--falta); }
+.rel-somas .s-sobra dd { color: var(--sobra); }
+.rel-somas .s-abs { border-color: var(--marinho-3, #24476f); }
+@media (max-width: 760px) { .rel-somas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 .rel-grafico { border-bottom: 1px solid var(--linha); }
 .rel-grafico-cabeca { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 2rem; }
@@ -321,6 +329,9 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.1; font-weight: 700; letter-spacing: 
 .tabela-rel tfoot td .falta { color: var(--falta); }
 .tabela-rel tfoot td .sobra { color: var(--sobra); }
 .tabela-rel .linha-total th, .tabela-rel .linha-total td { border-top: 2px solid var(--linha); font-weight: 700; color: var(--marinho); }
+.tabela-rel .linha-outros th small { display: block; font-size: .78rem; color: var(--cinza); font-weight: 400; }
+.tabela-rel .linha-abs th, .tabela-rel .linha-abs td { font-weight: 700; color: var(--marinho); }
+.tabela-rel .linha-abs td { padding-left: 2.25rem; }
 
 /* tabelas viram cartões no celular */
 @media (max-width: 720px) {
@@ -521,6 +532,9 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.1; font-weight: 700; letter-spacing: 
 .contato-info span { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--no-escuro); }
 .contato-info a { display: inline-flex; align-items: center; min-height: 44px; color: #fff; font-weight: 700; font-size: 1.15rem; }
 .contato-info a:hover { color: #dbe5ef; }
+.contato-info li a[href$=".html"] { display: flex; width: fit-content; min-height: 44px; font-size: .95rem; font-weight: 600; text-decoration: underline; }
+.contato-direto { margin-top: 1.6rem; color: var(--no-escuro); display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+.contato-direto .btn { min-height: 48px; }
 @media (max-width: 920px) { .contato-grade { grid-template-columns: minmax(0, 1fr); } }
 
 .contato-caixa { background: var(--branco); color: var(--tinta); border-radius: var(--raio-g); padding: clamp(1.25rem, 3vw, 2rem); --foco: #2758a6; }

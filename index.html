@@ -60,7 +60,7 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#duvidas">Dúvidas</a></li>
       </ul>
-      <a class="btn btn-principal btn-topo" href="#contato">Pedir avaliação</a>
+      <a class="btn btn-principal btn-topo" href="#contato">Solicitar avaliação</a>
     </nav>
   </div>
 </header>
@@ -84,13 +84,14 @@
       </ul>
     </div>
 
+    <!-- demo:painel -->
     <figure class="painel" aria-labelledby="painel-titulo">
       <div class="painel-topo">
         <div>
           <p class="painel-titulo" id="painel-titulo">Conciliação sistema × físico</p>
           <p class="painel-sub">Distribuidora fictícia · amostra de 150 itens</p>
         </div>
-        <span class="selo">Dados ilustrativos</span>
+        <span class="selo">Dados fictícios</span>
       </div>
       <dl class="painel-kpis">
         <div class="kpi kpi-bate">
@@ -99,11 +100,11 @@
         </div>
         <div class="kpi kpi-falta">
           <dt>Faltas</dt>
-          <dd><span class="kpi-num">R$ 6.912,40</span><small>21 itens</small></dd>
+          <dd><span class="kpi-num">R$ 4.266,60</span><small>21 itens</small></dd>
         </div>
         <div class="kpi kpi-sobra">
           <dt>Sobras</dt>
-          <dd><span class="kpi-num">R$ 2.180,00</span><small>11 itens</small></dd>
+          <dd><span class="kpi-num">R$ 1.905,60</span><small>11 itens</small></dd>
         </div>
       </dl>
       <table class="tabela-conc painel-tabela">
@@ -118,6 +119,7 @@
       </table>
       <figcaption class="painel-rodape">Recorte de 4 dos 150 itens do <a href="#relatorio">relatório de exemplo</a>. Faltas e sobras são somadas separadamente: uma não compensa a outra.</figcaption>
     </figure>
+    <!-- /demo:painel -->
   </div>
 </section>
 
@@ -174,7 +176,7 @@
       <aside class="ficha" aria-labelledby="titulo-ficha">
         <h3 id="titulo-ficha">Resumo do Raio-X</h3>
         <dl>
-          <div><dt>Prazo estimado</dt><dd>1 dia de contagem, em geral num sábado. Relatório e conversa de apresentação em até 5 dias úteis.</dd></div>
+          <div><dt>Prazo</dt><dd>Depende do escopo e fica escrito na proposta. Numa amostra de cerca de 150 itens, costuma ser 1 dia de contagem (em geral num sábado) e o relatório em até 5 dias úteis depois.</dd></div>
           <div><dt>O que você fornece</dt><dd>Relatório de saldo do sistema ou planilha (código, descrição, unidade, quantidade e custo), acesso ao estoque e uma pessoa que conheça os endereços.</dd></div>
           <div><dt>Orçamento</dt><dd>Preço fechado antes de começar, conforme o número de itens, a organização do estoque e a complexidade da operação.</dd></div>
         </dl>
@@ -207,6 +209,7 @@
       <p class="lead">Um relatório para o dono entender em cinco minutos e a equipe usar no dia seguinte. Os números abaixo são fictícios e todos se conferem entre si.</p>
     </div>
 
+    <!-- demo:relatorio -->
     <article class="relatorio" aria-labelledby="rel-titulo">
       <header class="rel-cabeca">
         <div>
@@ -219,25 +222,31 @@
       <dl class="rel-kpis">
         <div><dt>SKUs contados</dt><dd>150</dd><dd class="kpi-nota">de 1.380 cadastrados</dd></div>
         <div class="kpi-bate"><dt>Itens que batem</dt><dd>78,7%</dd><dd class="kpi-nota">118 de 150</dd></div>
-        <div class="kpi-falta"><dt>Faltas estimadas</dt><dd>R$ 6.912,40</dd><dd class="kpi-nota">21 itens</dd></div>
-        <div class="kpi-sobra"><dt>Sobras estimadas</dt><dd>R$ 2.180,00</dd><dd class="kpi-nota">11 itens</dd></div>
+        <div class="kpi-falta"><dt>Faltas na amostra</dt><dd>R$ 4.266,60</dd><dd class="kpi-nota">21 itens</dd></div>
+        <div class="kpi-sobra"><dt>Sobras na amostra</dt><dd>R$ 1.905,60</dd><dd class="kpi-nota">11 itens</dd></div>
       </dl>
 
       <div class="rel-composicao">
         <p class="rel-subtitulo" id="comp-tit">Situação dos 150 itens contados</p>
         <div class="barra-comp" role="img" aria-labelledby="comp-tit" aria-describedby="comp-leg">
-          <span class="seg-bate" style="--v:78.67%"></span><span class="seg-falta" style="--v:14%"></span><span class="seg-sobra" style="--v:7.33%"></span>
+          <span class="seg-bate" style="--v:78.67%"></span><span class="seg-falta" style="--v:14.00%"></span><span class="seg-sobra" style="--v:7.33%"></span>
         </div>
         <ul class="legenda" id="comp-leg">
           <li class="l-bate">118 batem</li><li class="l-falta">21 com falta</li><li class="l-sobra">11 com sobra</li>
         </ul>
-        <p class="liquido">Diferença líquida: <strong>−R$ 4.732,40</strong>. Aparece só como referência: somar sobras com faltas esconde dois erros de controle diferentes.</p>
+        <dl class="rel-somas">
+          <div class="s-falta"><dt>Faltas</dt><dd>R$ 4.266,60</dd></div>
+          <div class="s-sobra"><dt>Sobras</dt><dd>R$ 1.905,60</dd></div>
+          <div class="s-abs"><dt>Valor absoluto das divergências</dt><dd>R$ 6.172,20</dd></div>
+          <div class="s-liq"><dt>Diferença líquida</dt><dd>−R$ 2.361,00</dd></div>
+        </dl>
+        <p class="liquido">Diferença líquida: <strong>−R$ 2.361,00</strong> (sobras menos faltas). Aparece só como referência: as sobras não compensam as faltas, porque são dois erros de controle diferentes. O tamanho do problema é o valor absoluto, R$ 6.172,20.</p>
       </div>
 
       <div class="rel-grafico">
         <div class="rel-grafico-cabeca">
-          <p class="rel-subtitulo" id="graf-tit">Principais divergências, em reais</p>
-          <p class="destaque-dado">As 8 maiores somam <strong>R$ 4.495,50</strong>, quase metade (49%) dos R$ 9.092,40 em diferenças. É por elas que a correção começa.</p>
+          <p class="rel-subtitulo" id="graf-tit">As 8 maiores divergências, em reais</p>
+          <p class="destaque-dado">As 8 maiores somam <strong>R$ 4.495,50</strong> (73%) dos R$ 6.172,20 em divergências, contando faltas e sobras pelo valor absoluto. É por elas que a correção começa.</p>
         </div>
         <ul class="barras" aria-labelledby="graf-tit">
           <li class="falta"><span class="b-nome">Disjuntor tripolar 63 A</span><span class="b-trilho" aria-hidden="true"><i style="--v:100%"></i></span><span class="b-valor">−R$ 1.278,00</span></li>
@@ -254,7 +263,7 @@
 
       <div class="rel-tabela">
         <table class="tabela-conc tabela-rel" id="tabela-rel">
-          <caption class="rel-subtitulo">Detalhe das principais divergências</caption>
+          <caption class="rel-subtitulo">Detalhe das 8 maiores divergências</caption>
           <thead><tr><th scope="col">Item</th><th scope="col">Sistema</th><th scope="col">Físico</th><th scope="col">Diferença</th><th scope="col">Custo unit.</th><th scope="col">Impacto</th></tr></thead>
           <tbody>
             <tr data-sis="24" data-fis="15" data-custo="142.00"><th scope="row">Disjuntor tripolar 63 A</th><td data-rotulo="Sistema">24</td><td data-rotulo="Físico">15</td><td data-rotulo="Diferença" class="dif falta">−9</td><td data-rotulo="Custo unit.">R$ 142,00</td><td data-rotulo="Impacto" class="dif falta">−R$ 1.278,00</td></tr>
@@ -267,8 +276,9 @@
             <tr data-sis="140" data-fis="118" data-custo="5.10"><th scope="row">Fita isolante 20 m</th><td data-rotulo="Sistema">140</td><td data-rotulo="Físico">118</td><td data-rotulo="Diferença" class="dif falta">−22</td><td data-rotulo="Custo unit.">R$ 5,10</td><td data-rotulo="Impacto" class="dif falta">−R$ 112,20</td></tr>
           </tbody>
           <tfoot>
-            <tr class="linha-outros"><th scope="row">Outras 24 divergências</th><td colspan="5" data-rotulo="Impacto"><span class="falta">16 faltas: −R$ 3.765,90</span> <span class="sobra">8 sobras: +R$ 831,00</span></td></tr>
-            <tr class="linha-total"><th scope="row">Total da amostra</th><td colspan="5" data-rotulo="Impacto"><span class="falta">Faltas: −R$ 6.912,40</span> <span class="sobra">Sobras: +R$ 2.180,00</span></td></tr>
+            <tr class="linha-outros"><th scope="row">Outras 24 divergências<small>cada uma abaixo de R$ 112,20</small></th><td colspan="5" data-rotulo="Impacto"><span class="falta">16 faltas: −R$ 1.120,10</span> <span class="sobra">8 sobras: +R$ 556,60</span></td></tr>
+            <tr class="linha-total"><th scope="row">Total da amostra</th><td colspan="5" data-rotulo="Impacto"><span class="falta">Faltas: −R$ 4.266,60</span> <span class="sobra">Sobras: +R$ 1.905,60</span></td></tr>
+            <tr class="linha-abs"><th scope="row">Valor absoluto</th><td colspan="5" data-rotulo="Faltas + sobras">R$ 6.172,20</td></tr>
           </tfoot>
         </table>
       </div>
@@ -294,8 +304,9 @@
           </ol>
         </div>
       </div>
-      <p class="rel-rodape">Limitações descritas no relatório real: tamanho da amostra, confiabilidade dos custos do cadastro e movimentações ocorridas durante a contagem.</p>
+      <p class="rel-rodape">Os valores valem para os 150 itens contados, não para o estoque inteiro: a amostra indica onde está o problema, mas não mede com exatidão o total. O relatório real descreve essas limitações: tamanho da amostra, confiabilidade dos custos do cadastro e movimentações ocorridas durante a contagem.</p>
     </article>
+    <!-- /demo:relatorio -->
 
     <div class="cta-faixa">
       <p>Quer ver esse relatório com os números do seu estoque?</p>
@@ -318,7 +329,7 @@
         <p class="etapa-num">Etapa 1</p>
         <h3>Raio-X do Estoque</h3>
         <p>Avaliação por amostragem para investigar a confiabilidade do saldo e o valor das divergências.</p>
-        <p class="beneficio">Você descobre o tamanho do problema antes de investir num inventário completo.</p>
+        <p class="beneficio">Você tem uma estimativa do tamanho do problema antes de decidir sobre um inventário completo.</p>
         <ul class="inclui" aria-label="O Raio-X inclui">
           <li>Amostra dos itens de maior valor + sorteio entre os demais</li>
           <li>Contagem cega e recontagem de toda divergência</li>
@@ -332,29 +343,29 @@
         <p class="etapa-num">Etapa 2</p>
         <h3>Inventário físico completo</h3>
         <p>Contagem integral, recontagem das divergências, conciliação com o sistema e relatório por item, endereço e valor.</p>
-        <p class="beneficio">Saldo confiável de ponta a ponta para comprar, vender e fechar o balanço.</p>
-        <a class="link-seta" href="#contato" data-interesse="Inventário físico completo">Pedir avaliação do inventário</a>
+        <p class="beneficio">Saldo conferido item a item para comprar, vender e fechar o balanço com base no que existe. Orçamento conforme o número de itens e a complexidade.</p>
+        <a class="link-seta" href="#contato" data-interesse="Inventário físico completo">Pedir orçamento do inventário</a>
       </li>
       <li>
         <p class="etapa-num">Etapa 3</p>
         <h3>Diagnóstico de gestão</h3>
         <p>Análise do recebimento, armazenagem, endereçamento, saídas, devoluções e ajustes que geram os erros.</p>
         <p class="beneficio">Plano de ação priorizado para atacar a causa, não só o saldo.</p>
-        <a class="link-seta" href="#contato" data-interesse="Diagnóstico de gestão">Pedir avaliação do diagnóstico</a>
+        <a class="link-seta" href="#contato" data-interesse="Diagnóstico de gestão">Pedir orçamento do diagnóstico</a>
       </li>
       <li>
         <p class="etapa-num">Etapa 4</p>
         <h3>Implantação de controles</h3>
         <p>Endereçamento, procedimentos simples, rotina de inventário rotativo e treinamento da equipe.</p>
-        <p class="beneficio">A operação passa a manter o saldo certo sem depender de mutirão.</p>
-        <a class="link-seta" href="#contato" data-interesse="Implantação de controles">Pedir avaliação da implantação</a>
+        <p class="beneficio">Ajuda a operação a manter o saldo em dia sem depender de mutirão.</p>
+        <a class="link-seta" href="#contato" data-interesse="Implantação de controles">Pedir orçamento da implantação</a>
       </li>
       <li>
         <p class="etapa-num">Etapa 5</p>
         <h3>Acompanhamento mensal</h3>
         <p>Contagens periódicas dos itens de maior valor, indicador de acuracidade mês a mês e reunião curta de correção.</p>
         <p class="beneficio">Você acompanha a evolução e corrige o rumo cedo.</p>
-        <a class="link-seta" href="#contato" data-interesse="Acompanhamento mensal">Pedir avaliação do acompanhamento</a>
+        <a class="link-seta" href="#contato" data-interesse="Acompanhamento mensal">Pedir orçamento do acompanhamento</a>
       </li>
     </ol>
   </div>
@@ -470,7 +481,7 @@
     <div class="cabeca-secao">
       <p class="sobretitulo">Dúvidas</p>
       <h2 id="titulo-duvidas">Perguntas frequentes</h2>
-      <p class="lead">Não achou a sua? Pergunte pelo <a href="#contato">formulário</a> ou direto no WhatsApp.</p>
+      <p class="lead">Não achou a sua? Pergunte pelo <a href="#contato">formulário</a> ou <a href="https://wa.me/5511950600817" target="_blank" rel="noopener">direto no WhatsApp</a>.</p>
     </div>
     <div class="duvidas">
       <details><summary>Qual a diferença entre o Raio-X e o inventário completo?</summary><p>O Raio-X conta uma amostra para medir a confiabilidade do saldo e mostrar onde estão as maiores divergências. O inventário completo conta todos os itens e corrige o saldo de cada um. A amostra indica a tendência, mas não garante que todo o estoque se comporte igual a ela.</p></details>
@@ -489,14 +500,15 @@
 <section class="secao secao-contato" id="contato" aria-labelledby="titulo-contato">
   <div class="faixa contato-grade">
     <div class="contato-texto">
-      <p class="sobretitulo">Pedir avaliação</p>
+      <p class="sobretitulo">Solicitar avaliação</p>
       <h2 id="titulo-contato">Vamos ver o tamanho da diferença?</h2>
-      <p class="lead">Conte em poucas linhas como é o seu estoque. A resposta vem em até 1 dia útil para marcar a conversa de 20 minutos.</p>
+      <p class="lead">Conte em poucas linhas como é o seu estoque. Normalmente respondemos em até 1 dia útil para marcar a conversa de 20 minutos, sem custo.</p>
       <ul class="contato-info">
         <li><span>WhatsApp</span><a id="link-whats" href="https://wa.me/5511950600817" target="_blank" rel="noopener">(11) 95060-0817</a></li>
         <li><span>Atendimento</span>São Paulo capital</li>
-        <li><span>Privacidade</span>Este site não grava o que você digita. A mensagem é montada no seu navegador e enviada por você, pelo WhatsApp.</li>
+        <li><span>Privacidade</span>Este site não grava o que você digita. A mensagem é montada no seu navegador e só é enviada quando você confirma no WhatsApp. <a href="privacidade.html">Política de privacidade</a></li>
       </ul>
+      <p class="contato-direto">Prefere escrever do seu jeito? <a class="btn btn-whats" href="https://wa.me/5511950600817" target="_blank" rel="noopener">Conversar pelo WhatsApp</a></p>
     </div>
 
     <div class="contato-caixa">

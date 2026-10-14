@@ -16,7 +16,12 @@ sistemas.html         página Sistemas (app de inventário, Bipou, módulos sob 
 assets/ilustra-inventario.svg  ilustração da equipe contando no armazém (seção "Em campo")
 assets/img/*.webp     telas reais dos sistemas com dados fictícios
 conteudos/*.html      guias para busca (inventário em SP, estoque não bate, acuracidade, inventário rotativo)
+tools/demo.json          FONTE ÚNICA dos números do exemplo fictício (relatório, painel, guia)
+tools/gerar_demo.py      calcula totais, ranking e % e reescreve o painel e o relatório no index.html
+tools/demo-resumo.json   totais calculados (gerado; usado pelo gerar_conteudos.py)
 tools/gerar_conteudos.py  gera os guias e o sitemap a partir de um modelo único
+tools/gerar_backup_demo.py  backup fictício do app com os mesmos números (para as telas em assets/img)
+tools/gerar_og.js        gera assets/og.png e o apple-touch-icon (Playwright, site rodando na porta 8765)
 assets/config.js      contato (WhatsApp, e-mail): troque aqui
 assets/site.css       estilo (cores em :root)
 assets/site.js        menu, CTA fixo no celular, formulário com revisão
@@ -26,11 +31,25 @@ assets/apple-touch-icon.png
 assets/instrument-sans.woff  fonte (OFL)
 sitemap.xml, robots.txt
 tests/site.test.js, tests/conteudos.test.js   testes automáticos (Playwright)
+tests/medir.js         mede peso, requisições, LCP e CLS
 ```
 
 Nome usado no site e nas buscas: **Lastro Inventário e Consultoria de Estoque** (curto: Lastro). CEO e fundador: Arthur Angioletto.
 
 Seções da página, na ordem: primeira dobra com painel de conciliação → sinais → Raio-X do Estoque (oferta principal) → exemplo de relatório → serviços em 5 etapas → como funciona (6 passos) → quem está por trás (competências, equipe, sistema e método próprios, compromissos) → guias → dúvidas → formulário.
+
+## Exemplo de relatório (dados fictícios)
+
+Todos os números do exemplo saem de `tools/demo.json`: as 8 maiores divergências, as outras 24 e o item que bate mostrado no painel. Para mudar o exemplo:
+
+```bash
+python3 tools/gerar_demo.py        # reescreve o painel e o relatório no index.html (entre os marcadores <!-- demo:... -->)
+python3 tools/gerar_conteudos.py   # atualiza o exemplo do guia de acuracidade
+```
+
+O script recusa dados em que alguma das "outras" divergências seja maior que a 8ª maior. Não edite os números à mão no index.html: o teste compara a página com o demo.json. Se mudar os valores, gere de novo `assets/og.png` (`tools/gerar_og.js`) e as telas do app (`tools/gerar_backup_demo.py`, depois importe o backup no app e capture as telas).
+
+Valores atuais: amostra de 150 de 1.380 itens; 118 batem (78,7%); faltas R$ 4.266,60 em 21 itens; sobras R$ 1.905,60 em 11 itens; valor absoluto R$ 6.172,20; diferença líquida −R$ 2.361,00; as 8 maiores somam R$ 4.495,50 (73% do valor absoluto).
 
 ## Guias (conteúdo para busca)
 
@@ -88,20 +107,13 @@ O teste verifica:
 
 O Pages já está ligado: **Settings → Pages → Deploy from a branch → main / (root)**. Todo push na `main` publica em 1 a 2 minutos.
 
-### Quando tiver o domínio próprio (lastroestoque.com.br)
+### Domínio próprio
 
-1. Registre no registro.br. Sugestão: `lastroinventario.com.br` (marca + palavra que o cliente busca), que estava livre em 13/10/2026.
-2. Em **Settings → Pages → Custom domain**, digite o domínio.
-3. No registro.br, aponte o DNS:
-   - registros A para 185.199.108.153, 185.199.109.153, 185.199.110.153 e 185.199.111.153;
-   - CNAME `www` para `arthurangioletto.github.io`.
-4. Marque **Enforce HTTPS**.
-5. Troque `https://arthurangioletto.github.io/lastro-site/` por `https://lastroestoque.com.br/` nestes lugares:
-   - `index.html`: canonical, og:url, og:image e JSON-LD;
-   - `privacidade.html`: canonical;
-   - `BASE` em `tools/gerar_conteudos.py` (rode o script de novo para atualizar guias e sitemap);
-   - `robots.txt`.
-6. Com o e-mail do domínio criado, preencha `email` no `config.js`.
+`lastroinventario.com.br` já está ligado (arquivo `CNAME`, DNS no registro.br com os registros A do GitHub Pages e CNAME `www`, HTTPS forçado). Quando criar um e-mail no domínio, preencha `email` no `config.js`; a política de privacidade passa a mostrá-lo no lugar do WhatsApp.
+
+### Ponto de restauração
+
+Antes da auditoria de outubro de 2026 foi criado o branch `restauracao-antes-auditoria`. Para voltar: `git checkout main && git reset --hard restauracao-antes-auditoria && git push --force-with-lease` (apaga as mudanças posteriores; faça só se tiver certeza).
 
 ## Lastro Contagem: como funciona
 
@@ -114,7 +126,7 @@ O Pages já está ligado: **Settings → Pages → Deploy from a branch → main
 
 ## Limitações conhecidas
 
-- **robots.txt**: no endereço `github.io/lastro-site/` os buscadores leem o robots.txt da raiz `arthurangioletto.github.io`, não o deste repositório. Ele passa a valer com o domínio próprio. O sitemap pode ser enviado manualmente no Google Search Console.
+- **Fonte**: a Instrument Sans está em .woff. Converter para .woff2 (menor) exige a biblioteca brotli, que não pôde ser instalada no ambiente usado; vale converter depois.
 - **Testes**: foram feitos em navegador Chromium automatizado, simulando as larguras de tela. Ainda não houve teste em aparelhos reais (iPhone/Safari, Android) nem com leitor de tela real.
 - **Imagem de compartilhamento**: só aparece no WhatsApp e no LinkedIn depois que a página estiver publicada. O cache deles pode demorar a atualizar.
 - **Contagem no iPhone**: a câmera como leitor só funciona no Android com Chrome; no iPhone, use leitor USB/Bluetooth ou digite.
